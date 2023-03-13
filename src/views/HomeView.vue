@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import RandomButton from "@/components/RandomButton.vue";
+import BigButton from "@/components/BigButton.vue";
 import { ROUTE_NAME } from "@/constants/route";
 import restaurantsData from "@/data/restaurant.json";
 import { randomlyPickInArray } from "@/utils/object";
@@ -20,5 +20,7 @@ const handlePickerButtonClick = () => {
 </script>
 
 <template>
-  <RandomButton @click.stop="handlePickerButtonClick">Pick again!</RandomButton>
+  <BigButton type="button" @click.stop="handlePickerButtonClick"
+    >Pick again!</BigButton
+  >
 </template>

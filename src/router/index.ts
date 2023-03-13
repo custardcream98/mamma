@@ -1,4 +1,4 @@
-import { ROUTE } from "@/constants/route";
+import { ROUTE, ROUTE_NAME } from "@/constants/route";
 import HomeView from "@/views/HomeView.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -7,12 +7,12 @@ const router = createRouter({
   routes: [
     {
       path: ROUTE.HOME,
-      name: "home",
+      name: ROUTE_NAME.HOME,
       component: HomeView,
     },
     {
       path: ROUTE.RESULT,
-      name: "result",
+      name: ROUTE_NAME.RESULT,
       component: () => import("@/views/ResultView.vue"),
     },
   ],

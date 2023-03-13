@@ -1,5 +1,7 @@
 <script lang="ts" setup>
+import BigButton from "@/components/BigButton.vue";
 import ResultDisplay from "@/components/ResultDisplay.vue";
+import { PATH } from "@/constants/route";
 import restaurantsData from "@/data/restaurant.json";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
@@ -16,8 +18,14 @@ const pickedRestaurant = computed(() =>
   ),
 );
 
+const backToHome = () => {
+  router.push({
+    path: PATH.HOME,
+  });
+};
+
 if (!pickedRestaurant.value) {
-  router.go(-1);
+  backToHome();
 }
 </script>
 
@@ -27,4 +35,5 @@ if (!pickedRestaurant.value) {
     :name="pickedRestaurant.name"
     :menu="pickedRestaurant.menu"
   />
+  <BigButton type="button" @click="backToHome">다시 돌리기</BigButton>
 </template>
