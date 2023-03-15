@@ -9,6 +9,17 @@ const unocssConfig: VitePluginConfig = {
     breakpoints: {
       pc: "448px",
     },
+    colors: {
+      wavveBlue: "#204FF5",
+      wavveBlue_100: "#204FF522",
+      wavveBlue_200: "#204FF544",
+      wavveBlue_300: "#204FF566",
+      wavveBlue_400: "#204FF588",
+      wavveBlue_500: "#204FF5AA",
+      wavveBlue_600: "#204FF5CC",
+      wavveBlue_700: "#204FF5EE",
+      wavveBlue_800: "#204FF5FF",
+    },
   },
 };
 
