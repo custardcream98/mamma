@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
-import { MainDisplay, MainDisplayBoldText } from "@/components/MainDisplay";
-import { default as RandomButton } from "@/components/RandomButton.vue";
+import { MainButton, MainButtonBoldText } from "@/components/MainButton";
 import { ROUTE_NAME } from "@/constants/route";
 import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
 import { randomlyPickInArray } from "@/utils/object";
@@ -36,16 +35,14 @@ const handlePickerButtonClick = computed(() => () => {
     <p>{{ error }}</p>
   </template>
   <template v-else>
-    <MainDisplay text-wavveGray>
+    <MainButton text-wavveGray @click="handlePickerButtonClick">
       <template #first-line>
-        <RandomButton type="button" @click.stop="handlePickerButtonClick">
-          <MainDisplayBoldText>터치</MainDisplayBoldText>해서 👈
-        </RandomButton>
+        <MainButtonBoldText>터치</MainButtonBoldText>해서 👈
       </template>
       <template #second-line>
-        <MainDisplayBoldText>랜덤맛집 </MainDisplayBoldText>
+        <MainButtonBoldText>랜덤맛집 </MainButtonBoldText>
         확인하기.
       </template>
-    </MainDisplay>
+    </MainButton>
   </template>
 </template>
