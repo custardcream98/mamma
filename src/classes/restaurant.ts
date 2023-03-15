@@ -26,6 +26,34 @@ class Restaurant {
     this._review = data["공유자 평"];
     this._rating = parseInt(data["평균\n별점"]);
   }
+
+  get id(): number {
+    return this._id;
+  }
+
+  get meta(): {
+    id: number;
+    name: string;
+    type: string;
+    menu: string;
+    price: string;
+    location: string;
+    reviewer: string;
+    review: string;
+    rating: number;
+  } {
+    return {
+      id: this._id,
+      name: this._name,
+      type: this._type,
+      menu: this._menu,
+      price: this._price,
+      location: this._location,
+      reviewer: this._reviewer,
+      review: this._review,
+      rating: this._rating,
+    };
+  }
 }
 
 export default Restaurant;
