@@ -20,7 +20,7 @@ provide(TITLE_PROVIDER_KEY, {
       w-420px
       min-h-500px
       max-w-md
-      p-3
+      p-24px
       pc:w-100vw
       pc:h-95vh
       pc:rounded-3xl
