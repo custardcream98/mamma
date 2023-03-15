@@ -10,9 +10,12 @@ const PATH = {
   RESULT: routeResolver(ROUTE_NAME.RESULT),
 } as const;
 
+type PathType = keyof typeof PATH;
+
 const ROUTE = {
   HOME: PATH.HOME,
   RESULT: routeResolver(PATH.RESULT, ":restaurantId(\\d+)"),
 } as const;
 
 export { ROUTE_NAME, ROUTE, PATH };
+export type { PathType };
