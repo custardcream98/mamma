@@ -1,39 +1,49 @@
 <script lang="ts" setup>
-import BigButton from "@/components/BigButton.vue";
-import ResultDisplay from "@/components/ResultDisplay.vue";
-import { PATH } from "@/constants/route";
-import restaurantsData from "@/data/restaurant.json";
-import { computed } from "vue";
-import { useRouter } from "vue-router";
+import LoadingIndicator from "@/components/LoadingIndicator.vue";
+import { MainButton, MainButtonBoldText } from "@/components/MainButton";
+import { RoundedBadgeEm } from "@/components/RoundedBadge";
+import SmallInfoTextVue from "@/components/SmallInfoText.vue";
+import { useRestaurantMetaData, useRouteTo, useSetTitle } from "@/composables";
+import isString from "@/types/guards/isString";
+import { computed, watchEffect } from "vue";
 
-const router = useRouter();
-
-const restaurantId = computed(() =>
-  parseInt(router.currentRoute.value.params.restaurantId as string),
-);
-
-const pickedRestaurant = computed(() =>
-  restaurantsData.restaurants.find(
-    (restaurant) => restaurant.id === restaurantId.value,
-  ),
-);
-
-const backToHome = () => {
-  router.push({
-    path: PATH.HOME,
-  });
+type Props = {
+  restaurantId: string;
 };
 
-if (!pickedRestaurant.value) {
+const props = defineProps<Props>();
+const { routeTo: backToHome } = useRouteTo("HOME");
+useSetTitle("Wavvie, 맘마먹자!");
+
+const restaurantId = computed(() => {
+  if (isString(props.restaurantId)) return parseInt(props.restaurantId);
   backToHome();
-}
+});
+
+const { isLoadingRestaurantMetaData, restaurantMetaData, isError } =
+  useRestaurantMetaData(restaurantId);
+
+watchEffect(() => {
+  if (isError.value) backToHome();
+});
 </script>
 
 <template>
-  <ResultDisplay
-    v-if="pickedRestaurant"
-    :name="pickedRestaurant.name"
-    :menu="pickedRestaurant.menu"
-  />
-  <BigButton type="button" @click="backToHome">다시 돌리기</BigButton>
+  <template v-if="!isLoadingRestaurantMetaData && restaurantMetaData">
+    <MainButton @click="backToHome">
+      <template #first-line>
+        <MainButtonBoldText>{{ restaurantMetaData.name }}</MainButtonBoldText
+        >에서
+      </template>
+      <template #second-line>
+        <MainButtonBoldText>{{ restaurantMetaData.menu }}</MainButtonBoldText>
+        어때요?
+      </template>
+    </MainButton>
+    <SmallInfoTextVue>👆 다시 돌리려면 터치하세요!</SmallInfoTextVue>
+    <RoundedBadgeEm>No. {{ restaurantMetaData.id }}</RoundedBadgeEm>
+  </template>
+  <template v-else>
+    <LoadingIndicator />
+  </template>
 </template>
