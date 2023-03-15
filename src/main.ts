@@ -1,5 +1,5 @@
 import { VueQueryPlugin } from "@tanstack/vue-query";
-import "@unocss/reset/eric-meyer.css";
+import "@unocss/reset/tailwind.css";
 import "uno.css";
 import { createApp } from "vue";
 
