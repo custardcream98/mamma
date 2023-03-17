@@ -1,3 +1,5 @@
+import type { RESTAURANT_TYPES } from "@/constants/data";
+
 type SheetResponse = {
   hasNextPage: boolean;
   results: object[];
@@ -15,17 +17,7 @@ type RestaurantRawData = {
   "평균\n별점": string;
 };
 
-type RestaurantType =
-  | "한식"
-  | "일식"
-  | "양식"
-  | "음료"
-  | "중식"
-  | "퓨전"
-  | "평냉"
-  | "치맥"
-  | "분식"
-  | "홍콩";
+type RestaurantType = (typeof RESTAURANT_TYPES)[number];
 
 type FilterType = "all" | RestaurantType;
 
