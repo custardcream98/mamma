@@ -18,7 +18,7 @@ const SHEET_KEYS = [
   "rowIndex",
 ] as const;
 
-enum RESTAURANT_TYPE {
+const RESTAURANT_TYPES = [
   "한식",
   "일식",
   "양식",
@@ -29,6 +29,6 @@ enum RESTAURANT_TYPE {
   "치맥",
   "분식",
   "홍콩",
-}
+] as const;
 
-export { SHEET_KEYS, RESTAURANT_TYPE };
+export { SHEET_KEYS, RESTAURANT_TYPES };

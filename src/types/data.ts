@@ -6,7 +6,7 @@ type SheetResponse = {
 type RestaurantRawData = {
   등록순번: string;
   상호: string;
-  종류: string;
+  종류: RestaurantType;
   메뉴: string;
   "가격(1인기준)": string;
   위치: string;
@@ -15,4 +15,16 @@ type RestaurantRawData = {
   "평균\n별점": string;
 };
 
-export type { SheetResponse, RestaurantRawData };
+type RestaurantType =
+  | "한식"
+  | "일식"
+  | "양식"
+  | "음료"
+  | "중식"
+  | "퓨전"
+  | "평냉"
+  | "치맥"
+  | "분식"
+  | "홍콩";
+
+export type { SheetResponse, RestaurantRawData, RestaurantType };
