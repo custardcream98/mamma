@@ -1,15 +1,15 @@
 import isRestaurantRawData from "@/types/guards/isRestaurantRawData";
 
 class Restaurant {
-  _id: number;
-  _name: string;
-  _type: string;
-  _menu: string;
-  _price: string;
-  _location: string;
-  _reviewer: string;
-  _review: string;
-  _rating: number;
+  private _id: number;
+  private _name: string;
+  private _type: string;
+  private _menu: string;
+  private _price: string;
+  private _location: string;
+  private _reviewer: string;
+  private _review: string;
+  private _rating: number;
 
   constructor(data: object) {
     if (!isRestaurantRawData(data)) {

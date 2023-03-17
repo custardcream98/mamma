@@ -1,5 +1,5 @@
 const AXIOS_CONSTANTS = {
-  BASE_URL: "https://api.sheetson.com/v2/sheets/",
+  BASE_URL: "/api",
 };
 
 export { AXIOS_CONSTANTS };

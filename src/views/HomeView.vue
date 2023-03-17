@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { DetailWrapper } from "@/components/Detail";
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
 import { MainButton, MainButtonBoldText } from "@/components/MainButton";
 import { ROUTE_NAME } from "@/constants/route";
@@ -7,7 +8,7 @@ import { randomlyPickInArray } from "@/utils/object";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
 
-const router = useRouter();
+const router = useRouter(); // TODO: useRouteTo 컴포저블 리팩터링해 사용하기
 const {
   data: restaurants,
   isLoading,
@@ -19,6 +20,7 @@ const handlePickerButtonClick = computed(() => () => {
   if (!restaurants.value) return;
 
   const _pickedRestaurant = randomlyPickInArray(restaurants.value);
+
   router.push({
     name: ROUTE_NAME.RESULT,
     params: {
@@ -44,5 +46,9 @@ const handlePickerButtonClick = computed(() => () => {
         확인하기.
       </template>
     </MainButton>
+    <DetailWrapper>
+      <template #summary> 👉 랜덤맛집을 뽑아드립니다. </template>
+      <template #detail> badges </template>
+    </DetailWrapper>
   </template>
 </template>

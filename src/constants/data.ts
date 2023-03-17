@@ -18,4 +18,17 @@ const SHEET_KEYS = [
   "rowIndex",
 ] as const;
 
-export { SHEET_KEYS };
+enum RESTAURANT_TYPE {
+  "한식",
+  "일식",
+  "양식",
+  "음료",
+  "중식",
+  "퓨전",
+  "평냉",
+  "치맥",
+  "분식",
+  "홍콩",
+}
+
+export { SHEET_KEYS, RESTAURANT_TYPE };

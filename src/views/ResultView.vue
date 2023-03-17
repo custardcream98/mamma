@@ -3,7 +3,7 @@ import LoadingIndicator from "@/components/LoadingIndicator.vue";
 import { MainButton, MainButtonBoldText } from "@/components/MainButton";
 import { RoundedBadgeEm } from "@/components/RoundedBadge";
 import SmallInfoTextVue from "@/components/SmallInfoText.vue";
-import { useRestaurantMetaData, useRouteTo, useSetTitle } from "@/composables";
+import { useRestaurantMetaData, useRouteTo } from "@/composables";
 import isString from "@/types/guards/isString";
 import { computed, watchEffect } from "vue";
 
@@ -13,7 +13,6 @@ type Props = {
 
 const props = defineProps<Props>();
 const { routeTo: backToHome } = useRouteTo("HOME");
-useSetTitle("Wavvie, 맘마먹자!");
 
 const restaurantId = computed(() => {
   if (isString(props.restaurantId)) return parseInt(props.restaurantId);

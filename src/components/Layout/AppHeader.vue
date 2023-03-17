@@ -1,21 +1,16 @@
 <script lang="ts" setup>
-import MammaLogoSrc from "@/assets/mamma-logo.svg";
-import { TITLE_PROVIDER_KEY } from "@/constants/key";
-import { inject } from "vue";
-const titleInjected = inject(TITLE_PROVIDER_KEY);
-
-if (!titleInjected) {
-  throw new Error("title is not provided");
-}
+import { useRouteMeta } from "@/composables";
+import MammaLogo from "../Svg/MammaLogo.vue";
+const routeMeta = useRouteMeta();
 </script>
 
 <template>
   <header mt-24px text-center>
     <strong text-wavveGray font-300 text-14px>
-      {{ titleInjected.title.value }}
+      {{ routeMeta.headerTitle }}
     </strong>
     <h1 mt-8px>
-      <img m-auto :src="MammaLogoSrc" />
+      <MammaLogo m-auto />
     </h1>
   </header>
 </template>

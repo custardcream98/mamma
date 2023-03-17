@@ -1,19 +1,16 @@
-const routeResolver = (...routes: string[]) => {
-  return (
-    "/" +
-    routes
-      .map((ele) => {
-        if (ele.startsWith("/")) {
-          ele = ele.slice(1);
-        }
-        if (ele.endsWith("/")) {
-          ele = ele.slice(0, ele.length - 1);
-        }
+const _resolveSlash = (path: string) => {
+  if (path.startsWith("/")) {
+    path = path.slice(1);
+  }
+  if (path.endsWith("/")) {
+    path = path.slice(0, path.length - 1);
+  }
 
-        return ele;
-      })
-      .join("/")
-  );
+  return path;
+};
+
+const routeResolver = (...routes: string[]) => {
+  return "/" + routes.map((ele) => _resolveSlash(ele)).join("/");
 };
 
 export { routeResolver };

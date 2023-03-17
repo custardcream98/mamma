@@ -1,9 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer components {
-  .random-picker-btn {
-    @apply bg-gradient-to-r from-slate-50 to-blue-600;
-  }
-}

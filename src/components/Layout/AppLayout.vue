@@ -1,19 +1,8 @@
 <script lang="ts" setup>
-import { TITLE_PROVIDER_KEY } from "@/constants/key";
-import { provide, readonly, ref } from "vue";
 import AppHeader from "./AppHeader.vue";
-
-const title = ref<string>("오늘 점심 뭐 먹지? 맘마미아!");
-
-provide(TITLE_PROVIDER_KEY, {
-  title: readonly(title),
-  setTitle: (newTitle: string) => {
-    title.value = newTitle;
-  },
-});
 </script>
 <template>
-  <main flex items-center h-100vh>
+  <div flex items-center h-100vh>
     <div
       m-auto
       h-100vh
@@ -27,7 +16,9 @@ provide(TITLE_PROVIDER_KEY, {
       pc:shadow
     >
       <AppHeader />
-      <slot />
+      <main>
+        <slot />
+      </main>
     </div>
-  </main>
+  </div>
 </template>
