@@ -27,4 +27,6 @@ type RestaurantType =
   | "분식"
   | "홍콩";
 
-export type { SheetResponse, RestaurantRawData, RestaurantType };
+type FilterType = "all" | RestaurantType;
+
+export type { SheetResponse, RestaurantRawData, RestaurantType, FilterType };

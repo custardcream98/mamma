@@ -1,3 +1,5 @@
+import type { FilterType } from "@/types/data";
+
 const SHEET_KEYS = [
   "등록순번",
   "종류",
@@ -31,4 +33,18 @@ const RESTAURANT_TYPES = [
   "홍콩",
 ] as const;
 
-export { SHEET_KEYS, RESTAURANT_TYPES };
+const FILTER_TYPE_MAP: Record<FilterType, string> = {
+  all: "전체",
+  한식: "한식",
+  일식: "일식",
+  양식: "양식",
+  음료: "음료",
+  중식: "중식",
+  퓨전: "퓨전",
+  평냉: "평냉",
+  치맥: "치맥",
+  분식: "분식",
+  홍콩: "홍콩",
+} as const;
+
+export { SHEET_KEYS, RESTAURANT_TYPES, FILTER_TYPE_MAP };

@@ -2,6 +2,7 @@
 import { DetailWrapper } from "@/components/Detail";
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
 import { MainButton, MainButtonBoldText } from "@/components/MainButton";
+import useRestaurantFilterText from "@/composables/use-restaurant-filter-text";
 import { ROUTE_NAME } from "@/constants/route";
 import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
 import { randomlyPickInArray } from "@/utils/object";
@@ -9,6 +10,8 @@ import { computed } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter(); // TODO: useRouteTo 컴포저블 리팩터링해 사용하기
+const { filterText } = useRestaurantFilterText();
+
 const {
   data: restaurants,
   isLoading,
@@ -47,7 +50,7 @@ const handlePickerButtonClick = computed(() => () => {
       </template>
     </MainButton>
     <DetailWrapper>
-      <template #summary> 👉 랜덤맛집을 뽑아드립니다. </template>
+      <template #summary>카테고리 {{ filterText }}</template>
       <template #detail> badges </template>
     </DetailWrapper>
   </template>
