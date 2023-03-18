@@ -19,6 +19,4 @@ type RestaurantRawData = {
 
 type RestaurantType = (typeof RESTAURANT_TYPES)[number];
 
-type FilterType = "all" | RestaurantType;
-
-export type { SheetResponse, RestaurantRawData, RestaurantType, FilterType };
+export type { SheetResponse, RestaurantRawData, RestaurantType };

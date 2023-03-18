@@ -1,6 +1,6 @@
 <template>
   <details>
-    <summary cursor-pointer>
+    <summary cursor-pointer font-500>
       <slot name="summary" />
     </summary>
     <p><slot name="detail" /></p>

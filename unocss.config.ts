@@ -13,6 +13,7 @@ const unocssConfig: VitePluginConfig = {
       wavveGray: "#A5A5A5",
       badgeGray: "#D2D2D2",
       wavveBlue: "#204FF5",
+      wavveLightBlue: "#3887FF",
       wavveBlue_100: "#204FF522",
       wavveBlue_200: "#204FF544",
       wavveBlue_300: "#204FF566",
