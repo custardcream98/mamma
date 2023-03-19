@@ -52,12 +52,12 @@ const handlePickerButtonClick = computed(() => () => {
     </template>
     <template v-else>
       <form @submit.prevent="handlePickerButtonClick">
-        <MainButton type="submit" text-wavveGray>
+        <MainButton type="submit" class="main-button" text-wavveGray>
           <template #first-line>
             <MainButtonBoldText>터치</MainButtonBoldText>해서 👈
           </template>
           <template #second-line>
-            <MainButtonBoldText>랜덤맛집 </MainButtonBoldText>
+            <MainButtonBoldText class="hoverblue">랜덤맛집 </MainButtonBoldText>
             확인하기.
           </template>
         </MainButton>
@@ -76,3 +76,13 @@ const handlePickerButtonClick = computed(() => () => {
     </template>
   </section>
 </template>
+
+<style scoped>
+.hoverblue {
+  transition: all 0.3s ease-in-out;
+}
+
+.main-button:hover .hoverblue {
+  color: #204ff5;
+}
+</style>
