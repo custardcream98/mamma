@@ -8,6 +8,7 @@
     min-w-60px
     text-12px
     text-center
+    font-600
   >
     <slot />
   </em>

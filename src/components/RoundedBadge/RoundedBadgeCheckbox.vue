@@ -19,6 +19,7 @@
       cursor-pointer
       bg-badgeGray
       transition-colors
+      font-600
     >
       <slot />
     </span>
