@@ -13,8 +13,6 @@ const getRestaurantsData = async () => {
     return new Restaurant(data);
   });
 
-  console.log(sheetResponse);
-
   return restaurants;
 };
 

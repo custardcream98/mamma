@@ -7,4 +7,16 @@
   </details>
 </template>
 
-<script lang="ts" setup></script>
+<style scoped>
+p {
+  transition: all 0.3s ease-in-out;
+}
+details p {
+  margin-top: -15px;
+  opacity: 0;
+}
+details[open] p {
+  margin-top: 0;
+  opacity: 1;
+}
+</style>
