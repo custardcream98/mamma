@@ -4,6 +4,7 @@ import AppHeader from "./AppHeader.vue";
 </script>
 <template>
   <div
+    overflow-scroll
     flex
     flex-col
     m-auto
@@ -22,6 +23,6 @@ import AppHeader from "./AppHeader.vue";
     <main flex-1>
       <slot />
     </main>
-    <AppFooter />
+    <AppFooter mt-20px />
   </div>
 </template>
