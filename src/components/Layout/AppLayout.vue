@@ -9,12 +9,11 @@ import AppHeader from "./AppHeader.vue";
     flex-col
     m-auto
     h-100vh
-    w-420px
+    w-100vw
     min-h-500px
     max-w-md
     p-24px
     pc:mt-2.5vh
-    pc:w-100vw
     pc:h-95vh
     pc:rounded-3xl
     pc:shadow
