@@ -3,6 +3,7 @@
     {
       "source": "/api/:path(.*)",
       "destination": "https://devport-7dfd1.web.app/wavve/mamma/:path"
-    }
+    },
+    { "source": "/((?!api/.*).*)", "destination": "/" }
   ]
 }
