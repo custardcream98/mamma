@@ -31,44 +31,53 @@ watchEffect(() => {
 </script>
 
 <template>
-  <template v-if="!isLoadingRestaurantMetaData && restaurantMetaData">
-    <MainButton @click="backToHome">
-      <template #first-line>
-        <MainButtonBoldText>{{ restaurantMetaData.name }}</MainButtonBoldText
-        >에서
-      </template>
-      <template #second-line>
-        <MainButtonBoldText>{{ restaurantMetaData.menu }}</MainButtonBoldText>
-        어때요?
-      </template>
-    </MainButton>
-    <SmallInfoTextVue>👆 다시 돌리려면 터치하세요!</SmallInfoTextVue>
-    <RoundedBadgeEm mt-16px>No. {{ restaurantMetaData.id }}</RoundedBadgeEm>
-    <ResultTable
-      :type="restaurantMetaData.type"
-      :menu="restaurantMetaData.menu"
-      :price="restaurantMetaData.price"
-      :location="restaurantMetaData.location"
-    />
-    <ReviewDisplay
-      :review="restaurantMetaData.review"
-      :reviewer="restaurantMetaData.reviewer"
-    >
-      <template #rating v-if="restaurantMetaData.rating">
-        <ReviewStar :rating="restaurantMetaData.rating" />
-      </template>
-    </ReviewDisplay>
-    <BigButton
-      mt-30px
-      as="a"
-      target="_blank"
-      :href="`https://map.naver.com/v5/search/${encodeURI(
-        `여의도 ${restaurantMetaData.name}`,
-      )}`"
-      >지도로 보기</BigButton
-    >
-  </template>
-  <template v-else>
-    <LoadingIndicator />
-  </template>
+  <div>
+    <template v-if="!isLoadingRestaurantMetaData && restaurantMetaData">
+      <section>
+        <h2 sr-only>랜덤 선택 결과</h2>
+        <MainButton @click="backToHome">
+          <template #first-line>
+            <MainButtonBoldText>{{
+              restaurantMetaData.name
+            }}</MainButtonBoldText
+            >에서
+          </template>
+          <template #second-line>
+            <MainButtonBoldText>{{
+              restaurantMetaData.menu
+            }}</MainButtonBoldText>
+            어때요?
+          </template>
+        </MainButton>
+        <SmallInfoTextVue>👆 다시 돌리려면 터치하세요!</SmallInfoTextVue>
+        <RoundedBadgeEm mt-16px>No. {{ restaurantMetaData.id }}</RoundedBadgeEm>
+        <ResultTable
+          :type="restaurantMetaData.type"
+          :menu="restaurantMetaData.menu"
+          :price="restaurantMetaData.price"
+          :location="restaurantMetaData.location"
+        />
+      </section>
+      <ReviewDisplay
+        :review="restaurantMetaData.review"
+        :reviewer="restaurantMetaData.reviewer"
+      >
+        <template #rating v-if="restaurantMetaData.rating">
+          <ReviewStar :rating="restaurantMetaData.rating" />
+        </template>
+      </ReviewDisplay>
+      <BigButton
+        mt-30px
+        as="a"
+        target="_blank"
+        :href="`https://map.naver.com/v5/search/${encodeURI(
+          `여의도 ${restaurantMetaData.name}`,
+        )}`"
+        >지도로 보기</BigButton
+      >
+    </template>
+    <template v-else>
+      <LoadingIndicator />
+    </template>
+  </div>
 </template>

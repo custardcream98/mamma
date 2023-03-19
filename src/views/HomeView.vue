@@ -43,33 +43,36 @@ const handlePickerButtonClick = computed(() => () => {
 </script>
 
 <template>
-  <LoadingIndicator v-if="isLoading" />
-  <template v-else-if="isError">
-    <p>에러가 발생했습니다.</p>
-    <p>{{ error }}</p>
-  </template>
-  <template v-else>
-    <form @submit.prevent="handlePickerButtonClick">
-      <MainButton type="submit" text-wavveGray>
-        <template #first-line>
-          <MainButtonBoldText>터치</MainButtonBoldText>해서 👈
-        </template>
-        <template #second-line>
-          <MainButtonBoldText>랜덤맛집 </MainButtonBoldText>
-          확인하기.
-        </template>
-      </MainButton>
-      <DetailWrapper>
-        <template #summary
-          >카테고리
-          <strong text-wavveLightBlue>
-            {{ store.filterText }}
-          </strong>
-        </template>
-        <template #detail>
-          <CategoryFilter />
-        </template>
-      </DetailWrapper>
-    </form>
-  </template>
+  <section>
+    <h2 sr-only>랜덤맛집 확인하기 버튼 섹션</h2>
+    <LoadingIndicator v-if="isLoading" />
+    <template v-else-if="isError">
+      <p>에러가 발생했습니다.</p>
+      <p>{{ error }}</p>
+    </template>
+    <template v-else>
+      <form @submit.prevent="handlePickerButtonClick">
+        <MainButton type="submit" text-wavveGray>
+          <template #first-line>
+            <MainButtonBoldText>터치</MainButtonBoldText>해서 👈
+          </template>
+          <template #second-line>
+            <MainButtonBoldText>랜덤맛집 </MainButtonBoldText>
+            확인하기.
+          </template>
+        </MainButton>
+        <DetailWrapper>
+          <template #summary
+            >카테고리
+            <strong text-wavveLightBlue>
+              {{ store.filterText }}
+            </strong>
+          </template>
+          <template #detail>
+            <CategoryFilter />
+          </template>
+        </DetailWrapper>
+      </form>
+    </template>
+  </section>
 </template>
