@@ -1,21 +1,21 @@
-import type { RESTAURANT_TYPES } from "@/constants/data";
+import type {
+  RESTAURANT_TAGS,
+  RESTAURANT_TYPES,
+  SHEET_KEYS,
+} from "@/constants/data";
 
 type SheetResponse = {
   hasNextPage: boolean;
   results: object[];
 };
 
-type RestaurantRawData = {
-  등록순번: string;
-  상호: string;
-  종류: RestaurantType;
-  메뉴: string;
-  "가격(1인기준)": string;
-  위치: string;
-  이름: string;
-  "공유자 평": string;
-  "평균\n별점": string;
-};
+type RestaurantTags = (typeof RESTAURANT_TAGS)[number];
+type SheetKeys = (typeof SHEET_KEYS)[number];
+
+type RestaurantRawData = Record<SheetKeys, string> &
+  Record<RestaurantTags, "O" | ""> & {
+    종류: RestaurantType;
+  };
 
 type RestaurantType = (typeof RESTAURANT_TYPES)[number];
 
@@ -29,6 +29,7 @@ type RestaurantMetaData = {
   reviewer: string;
   review: string;
   rating: number;
+  tags: RestaurantTags[];
 };
 
 export type {
@@ -36,4 +37,5 @@ export type {
   RestaurantRawData,
   RestaurantType,
   RestaurantMetaData,
+  RestaurantTags,
 };

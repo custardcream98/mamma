@@ -4,7 +4,10 @@ import LoadingIndicator from "@/components/LoadingIndicator.vue";
 import { MainButton, MainButtonBoldText } from "@/components/MainButton";
 import ResultTable from "@/components/ResultTable.vue";
 import { ReviewDisplay, ReviewStar } from "@/components/Review";
-import { RoundedBadgeEm } from "@/components/RoundedBadge";
+import {
+  RoundedBadgeItem,
+  RoundedBadgeWrapper,
+} from "@/components/RoundedBadge";
 import SmallInfoTextVue from "@/components/SmallInfoText.vue";
 import { useRestaurantMetaData, useRouteTo } from "@/composables";
 import isString from "@/types/guards/isString";
@@ -50,7 +53,14 @@ watchEffect(() => {
           </template>
         </MainButton>
         <SmallInfoTextVue>👆 다시 돌리려면 터치하세요!</SmallInfoTextVue>
-        <RoundedBadgeEm mt-16px>No. {{ restaurantMetaData.id }}</RoundedBadgeEm>
+        <RoundedBadgeWrapper
+          as="ul"
+          v-if="restaurantMetaData.tags.length !== 0"
+        >
+          <RoundedBadgeItem v-for="tag of restaurantMetaData.tags" :key="tag">
+            {{ tag }}
+          </RoundedBadgeItem>
+        </RoundedBadgeWrapper>
         <ResultTable
           :type="restaurantMetaData.type"
           :menu="restaurantMetaData.menu"
@@ -59,6 +69,7 @@ watchEffect(() => {
         />
       </section>
       <ReviewDisplay
+        v-if="restaurantMetaData.review && restaurantMetaData.reviewer"
         :review="restaurantMetaData.review"
         :reviewer="restaurantMetaData.reviewer"
       >

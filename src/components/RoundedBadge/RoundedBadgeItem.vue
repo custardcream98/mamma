@@ -1,9 +1,8 @@
 <template>
-  <em
+  <li
     inline-block
     rounded-full
     bg-badgeGray
-    not-italic
     p-4px
     min-w-60px
     text-12px
@@ -11,5 +10,5 @@
     font-600
   >
     <slot />
-  </em>
+  </li>
 </template>

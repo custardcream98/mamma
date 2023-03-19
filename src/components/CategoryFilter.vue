@@ -1,5 +1,5 @@
 <template>
-  <RoundedBadgeWrapper>
+  <RoundedBadgeWrapper as="fieldset">
     <RoundedBadgeCheckbox
       v-for="category of RESTAURANT_TYPES"
       :key="category"

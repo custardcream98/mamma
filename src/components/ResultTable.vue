@@ -10,7 +10,7 @@
     </tr>
     <tr>
       <th>가격</th>
-      <td>{{ price }}</td>
+      <td>인당 약 {{ price }}원</td>
     </tr>
     <tr>
       <th>위치</th>

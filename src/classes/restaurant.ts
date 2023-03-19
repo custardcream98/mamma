@@ -1,4 +1,9 @@
-import type { RestaurantMetaData, RestaurantType } from "@/types/data";
+import { RESTAURANT_TAGS } from "@/constants/data";
+import type {
+  RestaurantMetaData,
+  RestaurantTags,
+  RestaurantType,
+} from "@/types/data";
 import isRestaurantRawData from "@/types/guards/isRestaurantRawData";
 
 class Restaurant {
@@ -11,6 +16,7 @@ class Restaurant {
   private _reviewer: string;
   private _review: string;
   private _rating: number;
+  private _tags: RestaurantTags[];
 
   constructor(data: object) {
     if (!isRestaurantRawData(data)) {
@@ -23,9 +29,10 @@ class Restaurant {
     this._menu = data["메뉴"];
     this._price = data["가격(1인기준)"];
     this._location = data["위치"];
-    this._reviewer = data["이름"];
+    this._reviewer = data["최초 공유자 이름"];
     this._review = data["공유자 평"];
-    this._rating = parseInt(data["평균\n별점"]);
+    this._rating = parseInt(data["평균 별점"]);
+    this._tags = RESTAURANT_TAGS.filter((tag) => data[tag] === "O");
   }
 
   get id(): number {
@@ -43,6 +50,7 @@ class Restaurant {
       reviewer: this._reviewer,
       review: this._review,
       rating: this._rating,
+      tags: this._tags,
     };
   }
 }
