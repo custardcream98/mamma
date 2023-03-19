@@ -3,7 +3,12 @@ import BigButton from "@/components/BigButton.vue";
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
 import { MainButton, MainButtonBoldText } from "@/components/MainButton";
 import ResultTable from "@/components/ResultTable.vue";
-import { ReviewDisplay, ReviewStar } from "@/components/Review";
+import {
+  ReviewDisplay,
+  ReviewItem,
+  ReviewList,
+  ReviewStar,
+} from "@/components/Review";
 import {
   RoundedBadgeItem,
   RoundedBadgeWrapper,
@@ -73,10 +78,18 @@ watchEffect(() => {
         :review="restaurantMetaData.review"
         :reviewer="restaurantMetaData.reviewer"
       >
-        <template #rating v-if="restaurantMetaData.rating">
-          <ReviewStar :rating="restaurantMetaData.rating" />
+        <template #rating v-if="restaurantMetaData.ratingAvg">
+          <ReviewStar :rating="restaurantMetaData.ratingAvg" />
         </template>
       </ReviewDisplay>
+      <ReviewList>
+        <ReviewItem
+          v-for="rate in restaurantMetaData.ratings"
+          :key="rate.rater"
+          :rater="rate.rater"
+          :rating="rate.rating"
+        />
+      </ReviewList>
       <BigButton
         mt-30px
         as="a"

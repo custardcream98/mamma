@@ -1,4 +1,5 @@
 import type {
+  OPTIONAL_SHEET_KEYS,
   RESTAURANT_TAGS,
   RESTAURANT_TYPES,
   SHEET_KEYS,
@@ -11,13 +12,20 @@ type SheetResponse = {
 
 type RestaurantTags = (typeof RESTAURANT_TAGS)[number];
 type SheetKeys = (typeof SHEET_KEYS)[number];
+type OptionalSheetKeys = (typeof OPTIONAL_SHEET_KEYS)[number];
 
 type RestaurantRawData = Record<SheetKeys, string> &
-  Record<RestaurantTags, "O" | ""> & {
+  Record<RestaurantTags, "O" | ""> &
+  Partial<Record<OptionalSheetKeys, string>> & {
     종류: RestaurantType;
   };
 
 type RestaurantType = (typeof RESTAURANT_TYPES)[number];
+
+type Rating = {
+  rater: string;
+  rating: number;
+};
 
 type RestaurantMetaData = {
   id: number;
@@ -28,11 +36,13 @@ type RestaurantMetaData = {
   location: string;
   reviewer: string;
   review: string;
-  rating: number;
+  ratingAvg: number;
   tags: RestaurantTags[];
+  ratings: Rating[];
 };
 
 export type {
+  Rating,
   SheetResponse,
   RestaurantRawData,
   RestaurantType,

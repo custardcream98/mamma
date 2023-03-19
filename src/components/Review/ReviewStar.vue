@@ -3,7 +3,7 @@
     <StarIcon
       ml-auto
       fill="#FF27A3"
-      title-string="리뷰 별점"
+      title-string="평균 별점"
       width="20"
       height="20"
     />

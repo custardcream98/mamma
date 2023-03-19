@@ -16,7 +16,7 @@ const SHEET_KEYS = [
   "rowIndex",
 ] as const;
 
-const CONDITIONAL_SHEET_KEYS = [
+const OPTIONAL_SHEET_KEYS = [
   "블로그 링크",
   "방문자1",
   "별점1",
@@ -49,9 +49,4 @@ const RESTAURANT_TYPES = [
   "홍콩",
 ] as const;
 
-export {
-  CONDITIONAL_SHEET_KEYS,
-  RESTAURANT_TAGS,
-  SHEET_KEYS,
-  RESTAURANT_TYPES,
-};
+export { OPTIONAL_SHEET_KEYS, RESTAURANT_TAGS, SHEET_KEYS, RESTAURANT_TYPES };
