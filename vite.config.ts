@@ -1,8 +1,9 @@
 import vue from "@vitejs/plugin-vue";
 import { fileURLToPath, URL } from "node:url";
-import unocss from "unocss/vite";
 import { defineConfig } from "vite";
-import unocssConfig from "./unocss.config";
+
+import unocss from "unocss/vite";
+import unocssConfig from "./uno.config";
 
 // https://vitejs.dev/config/
 export default defineConfig({

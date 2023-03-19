@@ -5,7 +5,7 @@
     "vitest.config.*",
     "cypress.config.*",
     "playwright.config.*",
-    "unocss.config.*"
+    "uno.config.*"
   ],
   "compilerOptions": {
     "composite": true,

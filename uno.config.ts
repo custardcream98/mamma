@@ -1,8 +1,7 @@
 import presetWind from "@unocss/preset-wind";
-import type { VitePluginConfig } from "@unocss/vite";
-import { presetAttributify, presetUno } from "unocss";
+import { defineConfig, presetAttributify, presetUno } from "unocss";
 
-const unocssConfig: VitePluginConfig = {
+const unocssConfig = defineConfig({
   include: [/\.variants\.[jt]s$/u, /\.[jt]sx?$/u, /\.vue$/u],
   presets: [presetUno(), presetAttributify(), presetWind()],
   theme: {
@@ -24,6 +23,6 @@ const unocssConfig: VitePluginConfig = {
       wavveBlue_800: "#204FF5FF",
     },
   },
-};
+});
 
 export default unocssConfig;
