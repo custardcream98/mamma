@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import BigButton from "@/components/BigButton.vue";
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
 import { MainButton, MainButtonBoldText } from "@/components/MainButton";
 import ResultTable from "@/components/ResultTable.vue";
@@ -45,7 +46,6 @@ watchEffect(() => {
     <RoundedBadgeEm mt-16px>No. {{ restaurantMetaData.id }}</RoundedBadgeEm>
     <ResultTable
       :type="restaurantMetaData.type"
-      :rating="restaurantMetaData.rating"
       :menu="restaurantMetaData.menu"
       :price="restaurantMetaData.price"
       :location="restaurantMetaData.location"
@@ -54,10 +54,19 @@ watchEffect(() => {
       :review="restaurantMetaData.review"
       :reviewer="restaurantMetaData.reviewer"
     >
-      <template #rating>
+      <template #rating v-if="restaurantMetaData.rating">
         <ReviewStar :rating="restaurantMetaData.rating" />
       </template>
     </ReviewDisplay>
+    <BigButton
+      mt-30px
+      as="a"
+      target="_blank"
+      :href="`https://map.naver.com/v5/search/${encodeURI(
+        `여의도 ${restaurantMetaData.name}`,
+      )}`"
+      >지도로 보기</BigButton
+    >
   </template>
   <template v-else>
     <LoadingIndicator />

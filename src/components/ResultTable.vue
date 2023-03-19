@@ -5,10 +5,6 @@
       <td>{{ type }}</td>
     </tr>
     <tr>
-      <th>대동맛지도 평점</th>
-      <td>{{ rating }}</td>
-    </tr>
-    <tr>
       <th>대표메뉴</th>
       <td>{{ menu }}</td>
     </tr>
@@ -37,7 +33,6 @@ import type { RestaurantMetaData } from "@/types/data";
 
 type ResultTableProps = {
   type: RestaurantMetaData["type"];
-  rating: RestaurantMetaData["rating"];
   price: RestaurantMetaData["price"];
   menu: RestaurantMetaData["menu"];
   location: RestaurantMetaData["location"];
