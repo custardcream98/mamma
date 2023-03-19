@@ -16,7 +16,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://api.sheetson.com/v2/sheets/",
+        target: "https://devport-7dfd1.web.app/wavve/mamma",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },

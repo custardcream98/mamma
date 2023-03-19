@@ -2,7 +2,7 @@ import isSheetResponse from "@/types/guards/isSheetResponse";
 import { googleSheetApi } from "./axios";
 
 export const getSheetData = async () => {
-  const response = await googleSheetApi.get(`/data`);
+  const response = await googleSheetApi.get(`/`);
 
   if (response.status !== 200) {
     throw new Error("Failed to fetch data from Google Sheet");
