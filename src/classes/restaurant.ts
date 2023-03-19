@@ -1,4 +1,4 @@
-import type { RestaurantType } from "@/types/data";
+import type { RestaurantMetaData, RestaurantType } from "@/types/data";
 import isRestaurantRawData from "@/types/guards/isRestaurantRawData";
 
 class Restaurant {
@@ -32,17 +32,7 @@ class Restaurant {
     return this._id;
   }
 
-  get meta(): {
-    id: number;
-    name: string;
-    type: RestaurantType;
-    menu: string;
-    price: string;
-    location: string;
-    reviewer: string;
-    review: string;
-    rating: number;
-  } {
+  get meta(): RestaurantMetaData {
     return {
       id: this._id,
       name: this._name,

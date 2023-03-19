@@ -19,4 +19,21 @@ type RestaurantRawData = {
 
 type RestaurantType = (typeof RESTAURANT_TYPES)[number];
 
-export type { SheetResponse, RestaurantRawData, RestaurantType };
+type RestaurantMetaData = {
+  id: number;
+  name: string;
+  type: RestaurantType;
+  menu: string;
+  price: string;
+  location: string;
+  reviewer: string;
+  review: string;
+  rating: number;
+};
+
+export type {
+  SheetResponse,
+  RestaurantRawData,
+  RestaurantType,
+  RestaurantMetaData,
+};
