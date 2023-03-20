@@ -21,6 +21,10 @@ const routes: RouteRecordRaw[] = [
       headerTitle: HEADER_TITLE.RESULT,
     },
   },
+  {
+    path: "/:pathMatch(.*)*",
+    redirect: ROUTE.HOME,
+  },
 ];
 
 export default routes;
