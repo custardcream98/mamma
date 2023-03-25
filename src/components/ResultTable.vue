@@ -1,7 +1,7 @@
 <template>
   <table mt-16px>
     <tr>
-      <th>카테코리</th>
+      <th>카테고리</th>
       <td>{{ type }}</td>
     </tr>
     <tr>
