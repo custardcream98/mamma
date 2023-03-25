@@ -1,4 +1,4 @@
-const RESTAURANT_TAGS = ["아침", "점심", "저녁", "낯술"] as const; // "낯술" is a typo in the original code
+const RESTAURANT_TAGS = ["아침", "점심", "저녁", "낯술", "1차", "2차"] as const; // "낯술" is a typo in the original code
 
 const SHEET_KEYS = [
   ...RESTAURANT_TAGS,
@@ -8,12 +8,10 @@ const SHEET_KEYS = [
   "메뉴",
   "가격(1인기준)",
   "위치",
-  "1차",
-  "2차",
   "최초 공유자 이름",
   "공유자 평",
   "평균 별점",
-  "rowIndex",
+  "reviews",
 ] as const;
 
 const OPTIONAL_SHEET_KEYS = [

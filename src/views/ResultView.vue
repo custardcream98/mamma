@@ -88,9 +88,9 @@ watchEffect(() => {
       <ReviewList>
         <ReviewItem
           v-for="rate in restaurantMetaData.ratings"
-          :key="rate.rater"
-          :rater="rate.rater"
-          :rating="rate.rating"
+          :key="rate.방문자"
+          :rater="rate.방문자"
+          :rating="rate.별점"
         />
       </ReviewList>
       <BigButton

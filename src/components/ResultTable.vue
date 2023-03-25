@@ -10,7 +10,7 @@
     </tr>
     <tr>
       <th>가격</th>
-      <td>인당 약 {{ price }}원</td>
+      <td>인당 약 {{ numberToFormattedString(price) }}원</td>
     </tr>
     <tr>
       <th>위치</th>
@@ -30,6 +30,7 @@ table th {
 
 <script lang="ts" setup>
 import type { RestaurantMetaData } from "@/types/data";
+import { numberToFormattedString } from "@/utils/format";
 
 type ResultTableProps = {
   type: RestaurantMetaData["type"];
