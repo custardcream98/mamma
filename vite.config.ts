@@ -20,6 +20,12 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
+      "/dev": {
+        target:
+          "http://127.0.0.1:5001/devport-7dfd1/asia-northeast3/apiNortheast/wavve/mamma",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/dev/, ""),
+      },
     },
   },
 });

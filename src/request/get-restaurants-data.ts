@@ -5,7 +5,7 @@ import { getSheetData } from "./get-sheet-data";
 const getRestaurantsData = async () => {
   const sheetResponse = await getSheetData();
 
-  const restaurants = sheetResponse.results.map((data) => {
+  const restaurants = sheetResponse.map((data) => {
     if (!isRestaurantRawData(data)) {
       throw new Error("Invalid data from Google Sheet");
     }

@@ -5,10 +5,7 @@ import type {
   SHEET_KEYS,
 } from "@/constants/data";
 
-type SheetResponse = {
-  hasNextPage: boolean;
-  results: object[];
-};
+type SheetResponse = Record<string, unknown>[];
 
 type RestaurantTags = (typeof RESTAURANT_TAGS)[number];
 type SheetKeys = (typeof SHEET_KEYS)[number];
