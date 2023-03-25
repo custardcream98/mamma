@@ -1,0 +1,23 @@
+{
+  "short_name": "Mamma",
+  "name": "Mamma: 오늘 점심 뭐 먹지?",
+  "icons": [
+    {
+      "src": "/icon/ms-icon-310x310.png",
+      "type": "image/png",
+      "sizes": "310x310"
+    },
+    {
+      "src": "/icon/apple-icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "id": "/?source=pwa",
+  "start_url": "/?source=pwa",
+  "background_color": "#204FF5",
+  "display": "fullscreen",
+  "scope": "/",
+  "theme_color": "#204FF5",
+  "description": "오늘 여의도에서 점심 뭐 먹지? 콘텐츠웨이브 대동맛지도로 고르자!"
+}
