@@ -15,6 +15,7 @@ import {
 } from "@/components/RoundedBadge";
 import SmallInfoTextVue from "@/components/SmallInfoText.vue";
 import { useRestaurantMetaData, useRouteTo } from "@/composables";
+import useRandomlyPickedRestaurantRouter from "@/composables/use-randomly-picked-restaurant-router";
 import isString from "@/types/guards/isString";
 import { computed, watchEffect } from "vue";
 
@@ -24,6 +25,8 @@ type Props = {
 
 const props = defineProps<Props>();
 const { routeTo: backToHome } = useRouteTo("HOME");
+
+const { pickAndRouteToRandomRestaurant } = useRandomlyPickedRestaurantRouter();
 
 const restaurantId = computed(() => {
   if (isString(props.restaurantId)) return parseInt(props.restaurantId);
@@ -43,15 +46,15 @@ watchEffect(() => {
     <template v-if="!isLoadingRestaurantMetaData && restaurantMetaData">
       <section>
         <h2 sr-only>랜덤 선택 결과</h2>
-        <MainButton @click="backToHome">
+        <MainButton class="main-button" @click="pickAndRouteToRandomRestaurant">
           <template #first-line>
-            <MainButtonBoldText>{{
+            <MainButtonBoldText class="hoverblue">{{
               restaurantMetaData.name
             }}</MainButtonBoldText
             >에서
           </template>
           <template #second-line>
-            <MainButtonBoldText>{{
+            <MainButtonBoldText class="hoverblue">{{
               restaurantMetaData.menu
             }}</MainButtonBoldText>
             어때요?
@@ -105,3 +108,13 @@ watchEffect(() => {
     </template>
   </div>
 </template>
+
+<style scoped>
+.hoverblue {
+  transition: all 0.3s ease-in-out;
+}
+
+.main-button:hover .hoverblue {
+  color: #204ff5;
+}
+</style>

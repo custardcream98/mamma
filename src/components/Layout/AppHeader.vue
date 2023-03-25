@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useRouteMeta } from "@/composables";
+import { ROUTE } from "@/constants/route";
 import MammaLogo from "../Svg/MammaLogo.vue";
 const routeMeta = useRouteMeta();
 </script>
@@ -18,7 +19,7 @@ const routeMeta = useRouteMeta();
       </strong>
     </Transition>
     <h1 mt-8px>
-      <MammaLogo m-auto />
+      <RouterLink :to="ROUTE.HOME"><MammaLogo m-auto /></RouterLink>
     </h1>
   </header>
 </template>
