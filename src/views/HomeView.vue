@@ -3,16 +3,19 @@ import CategoryFilter from "@/components/CategoryFilter.vue";
 import { DetailWrapper } from "@/components/Detail";
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
 import { MainButton, MainButtonBoldText } from "@/components/MainButton";
+import TagFilter from "@/components/TagFilter.vue";
 
 import { ROUTE_NAME } from "@/constants/route";
 import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
 import { useRestaurantFilterStore } from "@/store/use-restaurant-filter";
-import { randomlyPickInArray } from "@/utils/object";
+import { useRestaurantTagFilterStore } from "@/store/use-tag-filter";
+import { randomlyPickInArray } from "@/utils/array";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter(); // TODO: useRouteTo 컴포저블 리팩터링해 사용하기
 const store = useRestaurantFilterStore();
+const tagStore = useRestaurantTagFilterStore();
 
 const {
   data: restaurants,
@@ -30,7 +33,11 @@ const handlePickerButtonClick = computed(() => () => {
   }
 
   const _pickedRestaurant = randomlyPickInArray(
-    restaurants.value.filter((data) => store.filter.includes(data.meta.type)),
+    restaurants.value
+      .filter((data) => store.filter.includes(data.meta.type))
+      .filter((data) =>
+        data.meta.tags.some((tag) => tagStore.tagFilter.includes(tag)),
+      ),
   );
 
   router.push({
@@ -70,6 +77,17 @@ const handlePickerButtonClick = computed(() => () => {
           </template>
           <template #detail>
             <CategoryFilter />
+          </template>
+        </DetailWrapper>
+        <DetailWrapper mt-20px>
+          <template #summary
+            >식사 시간
+            <strong text-wavveLightBlue>
+              {{ tagStore.tagFilterText }}
+            </strong>
+          </template>
+          <template #detail>
+            <TagFilter />
           </template>
         </DetailWrapper>
       </form>

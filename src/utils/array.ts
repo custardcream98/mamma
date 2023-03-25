@@ -10,4 +10,8 @@ const sortArrayInConstArrayOrder = <T>(
   });
 };
 
-export { sortArrayInConstArrayOrder };
+const randomlyPickInArray = <T>(array: T[]) => {
+  return array[Math.floor(Math.random() * array.length)];
+};
+
+export { sortArrayInConstArrayOrder, randomlyPickInArray };
