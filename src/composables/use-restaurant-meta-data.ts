@@ -1,9 +1,14 @@
 import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
+import { useSelectedRestaurantId } from "@/store/use-selected-restaurant-id";
 import type { RestaurantMetaData } from "@/types/data";
-import { computed, type Ref } from "vue";
+import { computed } from "vue";
+import useRouteTo from "./use-routeto";
 
-const useRestaurantMetaData = (restaurantId: Ref<number | undefined>) => {
-  const { data, isLoading, isError } = useGetRestaurantsDataQuery();
+const useRestaurantMetaData = () => {
+  const { data, isLoading, isError, error } = useGetRestaurantsDataQuery();
+  const restaurantId = useSelectedRestaurantId();
+  const { routeTo: backToHome } = useRouteTo("HOME");
+
   const restaurantMetaData = computed<RestaurantMetaData | null>(() => {
     if (!data.value || !restaurantId.value) {
       return null;
@@ -14,6 +19,7 @@ const useRestaurantMetaData = (restaurantId: Ref<number | undefined>) => {
     );
 
     if (!_pickedRestaurant) {
+      backToHome();
       return null;
     }
 
@@ -24,6 +30,7 @@ const useRestaurantMetaData = (restaurantId: Ref<number | undefined>) => {
     isLoadingRestaurantMetaData: isLoading,
     restaurantMetaData,
     isError,
+    error,
   };
 };
 

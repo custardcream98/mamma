@@ -1,20 +1,27 @@
+<script lang="ts" setup>
+import { useRestaurantMetaData } from "@/composables";
+import { numberToFormattedString } from "@/utils/format";
+
+const { restaurantMetaData } = useRestaurantMetaData();
+</script>
+
 <template>
-  <table mt-16px>
+  <table mt-16px v-if="restaurantMetaData">
     <tr>
       <th>카테고리</th>
-      <td>{{ type }}</td>
+      <td>{{ restaurantMetaData.type }}</td>
     </tr>
     <tr>
       <th>대표메뉴</th>
-      <td>{{ menu }}</td>
+      <td>{{ restaurantMetaData.menu }}</td>
     </tr>
     <tr>
       <th>가격</th>
-      <td>인당 약 {{ numberToFormattedString(price) }}원</td>
+      <td>인당 약 {{ numberToFormattedString(restaurantMetaData.price) }}원</td>
     </tr>
     <tr>
       <th>위치</th>
-      <td>{{ location }}</td>
+      <td>{{ restaurantMetaData.location }}</td>
     </tr>
   </table>
 </template>
@@ -27,16 +34,3 @@ table th {
   font-weight: 500;
 }
 </style>
-
-<script lang="ts" setup>
-import type { RestaurantMetaData } from "@/types/data";
-import { numberToFormattedString } from "@/utils/format";
-
-type ResultTableProps = {
-  type: RestaurantMetaData["type"];
-  price: RestaurantMetaData["price"];
-  menu: RestaurantMetaData["menu"];
-  location: RestaurantMetaData["location"];
-};
-defineProps<ResultTableProps>();
-</script>

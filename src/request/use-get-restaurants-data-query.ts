@@ -2,7 +2,7 @@ import type Restaurant from "@/classes/restaurant";
 import { useQuery, type UseQueryOptions } from "@tanstack/vue-query";
 import getRestaurantsData from "./get-restaurants-data";
 
-const queryKey = ["restaurants"];
+export const queryKey = ["restaurants"];
 
 const queryOptions: UseQueryOptions<
   Restaurant[],
