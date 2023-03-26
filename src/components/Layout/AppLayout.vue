@@ -22,6 +22,6 @@ import AppHeader from "./AppHeader.vue";
     <main flex-1>
       <slot />
     </main>
-    <AppFooter mt-20px />
+    <AppFooter mt-100px />
   </div>
 </template>
