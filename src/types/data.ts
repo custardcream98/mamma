@@ -1,15 +1,8 @@
-import type {
-  OPTIONAL_SHEET_KEYS,
-  RESTAURANT_TAGS,
-  RESTAURANT_TYPES,
-  SHEET_KEYS,
-} from "@/constants/data";
+import type { RESTAURANT_TAGS, RESTAURANT_TYPES } from "@/constants/data";
 
 type SheetResponse = Record<string, unknown>[];
 
 type RestaurantTags = (typeof RESTAURANT_TAGS)[number];
-type SheetKeys = (typeof SHEET_KEYS)[number];
-type OptionalSheetKeys = (typeof OPTIONAL_SHEET_KEYS)[number];
 
 type Review = {
   방문자: string;

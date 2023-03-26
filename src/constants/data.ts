@@ -1,4 +1,4 @@
-const RESTAURANT_TAGS = ["아침", "점심", "저녁", "낯술", "1차", "2차"] as const; // "낯술" is a typo in the original code
+const RESTAURANT_TAGS = ["아침", "점심", "저녁", "낮술", "1차", "2차"] as const; // "낯술" is a typo in the original code
 
 const SHEET_KEYS = [
   ...RESTAURANT_TAGS,
