@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BackhandIndexPointingUp from "@/assets/images/backhand-index-pointing-up.webp";
 import { useRestaurantMetaData } from "@/composables";
 import useRandomlyPickedRestaurantRouter from "@/composables/use-randomly-picked-restaurant-router";
 import { MainButton, MainButtonBoldText } from "./MainButton";
@@ -27,7 +28,10 @@ const { pickAndRouteToRandomRestaurant } = useRandomlyPickedRestaurantRouter();
         어때요?
       </template>
     </MainButton>
-    <SmallInfoText>👆 다시 돌리려면 터치하세요!</SmallInfoText>
+    <SmallInfoText flex items-center
+      ><img w-18px h-18px mr-3px :src="BackhandIndexPointingUp" alt="" /> 다시
+      돌리려면 터치하세요!</SmallInfoText
+    >
     <RoundedBadgeWrapper as="ul" v-if="restaurantMetaData.tags.length !== 0">
       <RoundedBadgeItem v-for="tag of restaurantMetaData.tags" :key="tag">
         {{ tag }}

@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import BackhandIndexPointingLeft from "@/assets/images/backhand-index-pointing-left.webp";
 import CategoryFilterDetail from "@/components/CategoryFilterDetail.vue";
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
 import { MainButton, MainButtonBoldText } from "@/components/MainButton";
@@ -27,7 +28,8 @@ const handlePickerButtonClick = pickAndRouteToRandomRestaurant;
       <form @submit.prevent="handlePickerButtonClick">
         <MainButton type="submit" class="main-button" text-wavveGray>
           <template #first-line>
-            <MainButtonBoldText>터치</MainButtonBoldText>해서 👈
+            <MainButtonBoldText>터치</MainButtonBoldText>해서
+            <img w-40px h-40px ml-7px :src="BackhandIndexPointingLeft" alt="" />
           </template>
           <template #second-line>
             <MainButtonBoldText class="hoverblue">랜덤맛집 </MainButtonBoldText>
