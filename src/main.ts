@@ -1,3 +1,4 @@
+import "@/assets/style.css";
 import { VueQueryPlugin } from "@tanstack/vue-query";
 import "@unocss/reset/tailwind.css";
 import { createPinia } from "pinia";
