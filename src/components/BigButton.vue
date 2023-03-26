@@ -22,16 +22,19 @@ a {
   display: block;
   padding: 10px;
   width: 100%;
-  border-radius: 10px;
-  background-color: #204ff5;
-  color: white;
+  border-radius: 9999px;
+  background-color: white;
+  color: #204ff5;
   text-align: center;
+  font-weight: 800;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
   transition: all 0.2s ease-in-out;
 }
 
 button:hover,
 a:hover {
+  color: white;
   background-color: #204ff5aa;
 }
 </style>

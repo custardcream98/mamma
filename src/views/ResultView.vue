@@ -32,8 +32,8 @@ const { isError, error, isLoadingRestaurantMetaData } = useRestaurantMetaData();
       :is-loading="isLoadingRestaurantMetaData"
     >
       <ResultDisplay />
-      <ReviewDisplay />
       <NaverMapButton />
+      <ReviewDisplay />
     </LoadingErrorSuspense>
   </div>
 </template>
