@@ -1,7 +1,7 @@
 <template>
   <section py-12px mt-16px v-if="restaurantMetaData">
     <h2 sr-only>리뷰</h2>
-    <ReviewStar :rating="restaurantMetaData.ratingAvg" />
+    <ReviewStar />
     <p font-300 text-16px text-center px-10px>
       {{ restaurantMetaData.review }}
     </p>
