@@ -6,20 +6,23 @@ const routeMeta = useRouteMeta();
 </script>
 
 <template>
-  <header mt-24px text-center>
-    <Transition name="fade" mode="out-in">
-      <strong
-        text-wavveGray
-        font-300
-        text-14px
-        block
-        :key="routeMeta.headerTitle"
-      >
-        {{ routeMeta.headerTitle }}
-      </strong>
-    </Transition>
-    <h1 mt-8px>
-      <RouterLink :to="ROUTE.HOME"><MammaLogo m-auto /></RouterLink>
+  <header text-center>
+    <h1>
+      <RouterLink :to="ROUTE.HOME">
+        <Transition name="fade" mode="out-in">
+          <strong
+            text-wavveGray
+            font-300
+            text-14px
+            pt-24px
+            block
+            :key="routeMeta.headerTitle"
+          >
+            {{ routeMeta.headerTitle }}
+          </strong>
+        </Transition>
+        <MammaLogo m-auto mt-8px />
+      </RouterLink>
     </h1>
   </header>
 </template>
