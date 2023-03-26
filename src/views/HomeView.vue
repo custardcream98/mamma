@@ -1,9 +1,8 @@
 <script lang="ts" setup>
-import CategoryFilter from "@/components/CategoryFilter.vue";
-import { DetailWrapper } from "@/components/Detail";
+import CategoryFilterDetail from "@/components/CategoryFilterDetail.vue";
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
 import { MainButton, MainButtonBoldText } from "@/components/MainButton";
-import TagFilter from "@/components/TagFilter.vue";
+import TagFilterDetail from "@/components/TagFilterDetail.vue";
 import useRandomlyPickedRestaurantRouter from "@/composables/use-randomly-picked-restaurant-router";
 
 const {
@@ -11,8 +10,6 @@ const {
   isRestaurantDataLoading,
   isRestaurantDataError,
   restaurantDataError,
-  store,
-  tagStore,
 } = useRandomlyPickedRestaurantRouter();
 
 const handlePickerButtonClick = pickAndRouteToRandomRestaurant;
@@ -37,28 +34,8 @@ const handlePickerButtonClick = pickAndRouteToRandomRestaurant;
             확인하기.
           </template>
         </MainButton>
-        <DetailWrapper>
-          <template #summary
-            >카테고리
-            <strong text-wavveLightBlue>
-              {{ store.filterText }}
-            </strong>
-          </template>
-          <template #detail>
-            <CategoryFilter />
-          </template>
-        </DetailWrapper>
-        <DetailWrapper mt-20px>
-          <template #summary
-            >식사 시간
-            <strong text-wavveLightBlue>
-              {{ tagStore.tagFilterText }}
-            </strong>
-          </template>
-          <template #detail>
-            <TagFilter />
-          </template>
-        </DetailWrapper>
+        <CategoryFilterDetail />
+        <TagFilterDetail />
       </form>
     </template>
   </section>

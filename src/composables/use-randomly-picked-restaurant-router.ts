@@ -56,8 +56,6 @@ const useRandomlyPickedRestaurantRouter = () => {
     isRestaurantDataLoading: isLoading,
     isRestaurantDataError: isError,
     restaurantDataError: error,
-    store,
-    tagStore,
   };
 };
 
