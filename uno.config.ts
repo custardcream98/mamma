@@ -10,7 +10,7 @@ const unocssConfig = defineConfig({
     },
     colors: {
       wavveGray: "#A5A5A5",
-      badgeGray: "#D2D2D2",
+      badgeGray: "#F2F2F2",
       wavveLightGray: "#EBEFF1",
       wavveBlue: "#204FF5",
       wavveLightBlue: "#3887FF",
