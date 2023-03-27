@@ -14,16 +14,20 @@ const { pickAndRouteToRandomRestaurant } = useRandomlyPickedRestaurantRouter();
     v-if="restaurantMetaData"
   >
     <template #first-line>
-      <MainButtonBoldText class="hoverblue">{{
-        restaurantMetaData.name
-      }}</MainButtonBoldText
-      >에서
+      <span block>
+        <MainButtonBoldText class="hoverblue">{{
+          restaurantMetaData.name
+        }}</MainButtonBoldText
+        >에서
+      </span>
     </template>
     <template #second-line>
-      <MainButtonBoldText class="hoverblue">{{
-        restaurantMetaData.menu
-      }}</MainButtonBoldText>
-      어때요?
+      <span block>
+        <MainButtonBoldText class="hoverblue">{{
+          restaurantMetaData.menu
+        }}</MainButtonBoldText>
+        어때요?
+      </span>
     </template>
   </MainButton>
 </template>

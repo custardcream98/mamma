@@ -1,6 +1,6 @@
 <template>
   <button text-left text-36px font-300 mt-50px mb-16px w-full>
-    <span flex items-center><slot name="first-line" /></span>
-    <span block><slot name="second-line" /></span>
+    <slot name="first-line" />
+    <slot name="second-line" />
   </button>
 </template>

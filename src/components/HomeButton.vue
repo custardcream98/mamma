@@ -6,8 +6,10 @@ import { MainButton, MainButtonBoldText } from "./MainButton";
 <template>
   <MainButton type="submit" class="main-button" text-wavveGray>
     <template #first-line>
-      <MainButtonBoldText>터치</MainButtonBoldText>해서
-      <img w-40px h-40px ml-7px :src="BackhandIndexPointingLeft" alt="" />
+      <span flex items-center>
+        <MainButtonBoldText>터치</MainButtonBoldText>해서
+        <img w-40px h-40px ml-7px :src="BackhandIndexPointingLeft" alt="" />
+      </span>
     </template>
     <template #second-line>
       <MainButtonBoldText class="hoverblue">랜덤맛집 </MainButtonBoldText>
