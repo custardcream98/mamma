@@ -10,5 +10,6 @@
 <style scoped>
 footer {
   word-break: keep-all;
+  max-width: calc(100% - 100px);
 }
 </style>
