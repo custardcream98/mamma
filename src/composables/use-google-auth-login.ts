@@ -60,3 +60,5 @@ const useGoogleAuthLogin = () => {
     logout,
   };
 };
+
+export default useGoogleAuthLogin;
