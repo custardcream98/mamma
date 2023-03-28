@@ -25,6 +25,7 @@ import AppHeader from "./AppHeader.vue";
       <AppFooter />
     </div>
     <FloatingButton absolute right-24px bottom-24px />
+    <div id="teleport"></div>
   </div>
 </template>
 
