@@ -1,9 +1,8 @@
 <script setup lang="ts">
+import { ModalBackdrop, ModalBody, ModalTeleport } from "@/components/Modal";
 import { useAuth } from "@/store/use-auth";
-import LoginButton from "../LoginButton.vue";
-import ModalBackdrop from "./ModalBackdrop.vue";
-import ModalBody from "./ModalBody.vue";
-import ModalTeleport from "./ModalTeleport.vue";
+import LoginButton from "./LoginButton.vue";
+import ReviewForm from "./ReviewForm.vue";
 
 type AddReviewModalEmits = {
   (event: "closeModal"): void;
@@ -22,6 +21,7 @@ const handleBackdropClick = () => {
     <ModalBackdrop @click="handleBackdropClick">
       <ModalBody>
         <LoginButton v-if="!authStore.auth" />
+        <ReviewForm />
       </ModalBody>
     </ModalBackdrop>
   </ModalTeleport>
