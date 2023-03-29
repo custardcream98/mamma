@@ -1,7 +1,7 @@
 <script lang="ts" setup>
+import MammaLogo from "@/assets/svgs/MammaLogo.vue";
 import { useRouteMeta } from "@/composables";
 import { ROUTE } from "@/constants/route";
-import MammaLogo from "../Svg/MammaLogo.vue";
 const routeMeta = useRouteMeta();
 </script>
 

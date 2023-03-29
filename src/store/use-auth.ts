@@ -3,7 +3,7 @@ import type { User } from "@firebase/auth";
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
-const useAuth = defineStore("firebase-auth", () => {
+const useAuthStore = defineStore("firebase-auth", () => {
   const auth = ref<User | null>(null);
 
   fireauth.onAuthStateChanged((user) => {
@@ -15,4 +15,4 @@ const useAuth = defineStore("firebase-auth", () => {
   };
 });
 
-export { useAuth };
+export { useAuthStore };

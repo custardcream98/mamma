@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import StarIcon from "@/components/Svg/StarIcon.vue";
+import StarIcon from "@/assets/svgs/StarIcon.vue";
 import { useRestaurantMetaData } from "@/composables";
 
 const { restaurantMetaData } = useRestaurantMetaData();
