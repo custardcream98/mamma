@@ -22,7 +22,7 @@ import AppHeader from "./AppHeader.vue";
       <main flex-1 min-h-screen pc:min-h-95vh>
         <slot />
       </main>
-      <AppFooter />
+      <AppFooter mt-80px />
     </div>
     <FloatingButton absolute right-24px bottom-24px />
     <div id="teleport"></div>
