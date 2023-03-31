@@ -1,12 +1,20 @@
 <script setup lang="ts">
+import { ROUTE_NAME } from "@/constants/route";
 import { loginGoogle, logoutGoogle } from "@/lib/google-auth";
 import { useAuthStore } from "@/store/use-auth";
+import { computed } from "vue";
+import { useRoute } from "vue-router";
 import { modalInject, ModalWrapper } from "..";
 import { RestaurantsModalOpenButton } from "../RestaurantsModal";
 import FloatingModalButton from "./FloatingModalButton.vue";
 
 const { isModalOpened, closeModal } = modalInject();
 const authStore = useAuthStore();
+const route = useRoute();
+
+const isRestaurantResultRoute = computed(
+  () => route.name === ROUTE_NAME.RESULT,
+);
 
 const handleLogout = () => {
   logoutGoogle();
@@ -34,6 +42,14 @@ const handleLogout = () => {
           <RestaurantsModalOpenButton @click="closeModal">
             레스토랑 목록 보기
           </RestaurantsModalOpenButton>
+        </li>
+        <li v-if="isRestaurantResultRoute">
+          <FloatingModalButton
+            @click.stop="handleLogout"
+            hover:bg-wavveBlue_100
+          >
+            리뷰 남기기
+          </FloatingModalButton>
         </li>
         <li>
           <FloatingModalButton
