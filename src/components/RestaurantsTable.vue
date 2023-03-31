@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ROUTE } from "@/constants/route";
+import { ROUTE_NAME } from "@/constants/route";
 import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
 import { routeResolver } from "@/utils/route";
 import LogoutButton from "./LogoutButton.vue";
@@ -16,7 +16,7 @@ const { closeModal } = modalInject();
     <TableRow v-for="{ meta } of data">
       <TableHeader>{{ meta.name }}</TableHeader>
       <TableData hover:text-wavveBlue @click="closeModal"
-        ><RouterLink :to="routeResolver(ROUTE.RESULT, meta.id.toString())"
+        ><RouterLink :to="routeResolver(ROUTE_NAME.RESULT, meta.id.toString())"
           >링크</RouterLink
         ></TableData
       >
