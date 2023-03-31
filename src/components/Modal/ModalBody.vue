@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-90% py-50px px-20px flex items-center justify-center bg-white shadow rounded-2xl z-100"
+    class="w-90% bg-white shadow rounded-2xl z-100 max-h-70% overflow-y-scroll p-30px"
     @click.stop
   >
     <slot></slot>
