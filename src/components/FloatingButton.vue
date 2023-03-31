@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AddReviewIcon from "@/assets/svgs/AddReviewIcon.vue";
 import { useModal } from "@/composables";
-import AddReviewModal from "./AddReviewModal.vue";
+import FloatingModal from "./FloatingModal.vue";
 import { modalProvide } from "./Modal";
 
 const { isModalOpened, openModal, closeModal } = useModal();
@@ -22,7 +22,7 @@ modalProvide({ isModalOpened, closeModal, closeOnBackdropClick: true });
     >
       <AddReviewIcon title-string="리뷰 추가하기" />
     </button>
-    <AddReviewModal />
+    <FloatingModal />
   </aside>
 </template>
 
