@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ModalBody } from "@/components/Modal";
-import { ModalWrapper } from "./Modal";
-import ModalClosseButton from "./Modal/ModalClosseButton.vue";
-import RestaurantsList from "./RestaurantsList.vue";
+import RestaurantsList from "@/components/RestaurantsList.vue";
+import { ModalWrapper } from "..";
+import ModalClosseButton from "../ModalClosseButton.vue";
 </script>
 
 <template>

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
+import { NaverMapButton } from "@/components/Button";
 import LoadingErrorSuspense from "@/components/LoadingErrorSuspense.vue";
-import NaverMapButton from "@/components/NaverMapButton.vue";
 import ResultDisplay from "@/components/ResultDisplay.vue";
 import { ReviewDisplay } from "@/components/Review";
 import { useRestaurantMetaData } from "@/composables";

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { loginGoogle, logoutGoogle } from "@/lib/google-auth";
 import { useAuthStore } from "@/store/use-auth";
+import { modalInject, ModalWrapper } from "..";
+import { RestaurantsModalOpenButton } from "../RestaurantsModal";
 import FloatingModalButton from "./FloatingModalButton.vue";
-import { modalInject, ModalWrapper } from "./Modal";
-import TableModalOpenButton from "./TableModalOpenButton.vue";
 
 const { isModalOpened, closeModal } = modalInject();
 const authStore = useAuthStore();
@@ -31,7 +31,9 @@ const handleLogout = () => {
     >
       <template v-if="authStore.auth">
         <li>
-          <TableModalOpenButton @click="closeModal" />
+          <RestaurantsModalOpenButton @click="closeModal">
+            레스토랑 목록 보기
+          </RestaurantsModalOpenButton>
         </li>
         <li>
           <FloatingModalButton

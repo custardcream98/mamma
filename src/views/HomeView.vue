@@ -1,6 +1,6 @@
 <script lang="ts" setup>
+import { HomeButton } from "@/components/Button";
 import CategoryFilterDetail from "@/components/CategoryFilterDetail.vue";
-import HomeButton from "@/components/HomeButton.vue";
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
 import TagFilterDetail from "@/components/TagFilterDetail.vue";
 import useRandomlyPickedRestaurantRouter from "@/composables/use-randomly-picked-restaurant-router";

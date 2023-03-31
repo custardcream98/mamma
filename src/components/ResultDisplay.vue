@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BackhandIndexPointingUp from "@/assets/images/backhand-index-pointing-up.webp";
 import { useRestaurantMetaData } from "@/composables";
-import ResultButton from "./ResultButton.vue";
+import { ResultButton } from "./Button";
 import ResultTable from "./ResultTable.vue";
 import { RoundedBadgeItem, RoundedBadgeWrapper } from "./RoundedBadge";
 import SmallInfoText from "./SmallInfoText.vue";

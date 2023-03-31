@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import FloatingButton from "../FloatingButton.vue";
+import FloatingButton from "../Button/FloatingButton.vue";
 import AppFooter from "./AppFooter.vue";
 import AppHeader from "./AppHeader.vue";
 </script>

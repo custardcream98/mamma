@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import AddReviewIcon from "@/assets/svgs/AddReviewIcon.vue";
+import { FloatingModal, modalProvide } from "@/components/Modal";
 import { useModal } from "@/composables";
-import FloatingModal from "./FloatingModal.vue";
-import { modalProvide } from "./Modal";
 
 const { isModalOpened, openModal, closeModal } = useModal();
 modalProvide({ isModalOpened, closeModal, closeOnBackdropClick: true });

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useModal } from "@/composables";
-import AddReviewModal from "./AddReviewModal.vue";
-import FloatingModalButton from "./FloatingModalButton.vue";
-import { modalProvide } from "./Modal";
+import { modalProvide } from "..";
+import FloatingModalButton from "../FloatingModal/FloatingModalButton.vue";
+import AddReviewModal from "./RestaurantsModal.vue";
 
 const {
   closeModal: closeTableModal,
@@ -19,7 +19,7 @@ modalProvide({
 
 <template>
   <FloatingModalButton @click.stop="openTableModal" hover:bg-wavveBlue_100>
-    레스토랑 목록 보기
+    <slot></slot>
     <AddReviewModal />
   </FloatingModalButton>
 </template>
