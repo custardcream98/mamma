@@ -7,7 +7,6 @@ const handleBackdropClick = () => {
   if (!closeOnBackdropClick) {
     return;
   }
-  console.log("closeOnBackdropClick");
 
   closeModal();
 };
