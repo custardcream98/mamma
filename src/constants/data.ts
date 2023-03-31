@@ -14,26 +14,6 @@ const SHEET_KEYS = [
   "reviews",
 ] as const;
 
-const OPTIONAL_SHEET_KEYS = [
-  "블로그 링크",
-  "방문자1",
-  "별점1",
-  "방문자2",
-  "별점2",
-  "방문자3",
-  "별점3",
-  "방문자4",
-  "별점4",
-  "방문자5",
-  "별점5",
-  "방문자6",
-  "별점6",
-  "방문자7",
-  "별점7",
-  "방문자8",
-  "별점8",
-] as const;
-
 const RESTAURANT_TYPES = [
   "한식",
   "일식",
@@ -47,4 +27,4 @@ const RESTAURANT_TYPES = [
   "홍콩",
 ] as const;
 
-export { OPTIONAL_SHEET_KEYS, RESTAURANT_TAGS, SHEET_KEYS, RESTAURANT_TYPES };
+export { RESTAURANT_TAGS, SHEET_KEYS, RESTAURANT_TYPES };
