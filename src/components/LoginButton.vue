@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { useGoogleAuthLogin } from "@/composables";
-
-const { login } = useGoogleAuthLogin();
+import { loginGoogle } from "@/lib/google-auth";
 </script>
 
 <template>
   <button
     type="button"
-    @click.stop="login"
+    @click.stop="loginGoogle"
     px-15px
     py-10px
     bg-wavveBlue

@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { useGoogleAuthLogin } from "@/composables";
-
-const { logout } = useGoogleAuthLogin();
+import { logoutGoogle } from "@/lib/google-auth";
 </script>
 
 <template>
@@ -18,7 +16,7 @@ const { logout } = useGoogleAuthLogin();
     mb-20px
     text-red
     font-700
-    @click="logout"
+    @click="logoutGoogle"
   >
     로그아웃
   </button>
