@@ -37,9 +37,8 @@ const useGoogleAuthLogin = () => {
         "user" in error &&
         error.code === "auth/not-wavvie"
       ) {
-        alert("Wavve 사내 메일로 가입해주세요 🌊");
-
         await deleteUser(error.user as User);
+        alert("Wavve 사내 메일로 가입해주세요 🌊");
       }
 
       throw error;

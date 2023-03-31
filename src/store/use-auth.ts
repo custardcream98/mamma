@@ -1,3 +1,4 @@
+import { WAVVE_EMAIL_DOMAIN } from "@/constants/auth";
 import { fireauth } from "@/lib/firebase";
 import type { User } from "@firebase/auth";
 import { defineStore } from "pinia";
@@ -7,7 +8,11 @@ const useAuthStore = defineStore("firebase-auth", () => {
   const auth = ref<User | null>(null);
 
   fireauth.onAuthStateChanged((user) => {
-    auth.value = user;
+    if (user?.email?.endsWith(WAVVE_EMAIL_DOMAIN)) {
+      auth.value = user;
+    } else {
+      auth.value = null;
+    }
   });
 
   return {
