@@ -1,11 +1,8 @@
 <template>
-  <fieldset v-if="as === 'fieldset'" mt-16px flex flex-wrap gap-8px>
-    <legend sr-only>라운드 배지 묶음</legend>
+  <component :is="as" mt-16px flex flex-wrap gap-8px>
+    <legend sr-only v-if="as === 'fieldset'">라운드 배지 묶음</legend>
     <slot />
-  </fieldset>
-  <ul v-else mt-16px flex flex-wrap gap-8px>
-    <slot />
-  </ul>
+  </component>
 </template>
 
 <script lang="ts" setup>

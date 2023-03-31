@@ -1,10 +1,7 @@
 <template>
-  <button p-10px w-full v-if="as === 'button'">
+  <component :is="as" p-10px w-full>
     <slot />
-  </button>
-  <a p-10px w-full v-else>
-    <slot />
-  </a>
+  </component>
 </template>
 
 <script lang="ts" setup>
