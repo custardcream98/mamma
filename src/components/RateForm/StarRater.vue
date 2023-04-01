@@ -4,6 +4,8 @@ import { computed, ref } from "vue";
 import FiveStars from "./FiveStars.vue";
 
 const inputValue = ref<number>(0);
+const resetValue = () => (inputValue.value = 0);
+defineExpose({ resetValue });
 const filledWidth = computed(() => (inputValue.value / RANGE) * WRAPPER_WIDTH);
 
 const starRaterWrapperElement = ref<HTMLDivElement>();

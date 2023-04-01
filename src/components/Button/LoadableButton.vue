@@ -1,13 +1,20 @@
 <script setup lang="ts">
 defineProps<{
   isLoading: boolean;
+  warning?: boolean;
 }>();
 </script>
 
 <template>
-  <button block ml-10px rounded-xl bg-wavveBlue text-white w-100px h-46px>
+  <button>
     <slot v-if="!isLoading"></slot>
-    <div class="lds-ring" v-else>
+    <div
+      class="lds-ring"
+      :class="{
+        warning,
+      }"
+      v-else
+    >
       <div></div>
       <div></div>
       <div></div>
@@ -35,6 +42,14 @@ defineProps<{
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: #fff transparent transparent transparent;
+}
+
+.warning div {
+  border: 4px solid rgb(248, 113, 113);
+  border-color: rgb(248, 113, 113) transparent transparent transparent;
+  width: 20px;
+  height: 20px;
+  top: -4px;
 }
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;

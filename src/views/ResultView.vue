@@ -8,7 +8,7 @@ import { useRestaurantMetaData } from "@/composables";
 import { useAuthStore } from "@/store/use-auth";
 import { useSelectedRestaurantIdStore } from "@/store/use-selected-restaurant-id";
 import isString from "@/types/guards/isString";
-import { toRefs, watchEffect } from "vue";
+import { computed, toRefs, watchEffect } from "vue";
 
 const props = defineProps<{
   restaurantId: string;
@@ -24,7 +24,18 @@ watchEffect(() => {
   store.setSelectedRestaurantId(Number(restaurantId.value));
 });
 
-const { isError, error, isLoadingRestaurantMetaData } = useRestaurantMetaData();
+const { isError, error, isLoadingRestaurantMetaData, restaurantMetaData } =
+  useRestaurantMetaData();
+
+const hasUserRated = computed(() => {
+  const auth = authStore.auth;
+  if (!auth || !restaurantMetaData.value) {
+    return false;
+  }
+  return restaurantMetaData.value.ratings.some(
+    (rating) => rating.uid === auth.uid,
+  );
+});
 </script>
 
 <template>
@@ -37,7 +48,7 @@ const { isError, error, isLoadingRestaurantMetaData } = useRestaurantMetaData();
       <ResultDisplay />
       <NaverMapButton />
       <ReviewDisplay />
-      <section v-if="authStore.auth">
+      <section v-if="authStore.auth && !hasUserRated">
         <h2 sr-only>별점 남기기</h2>
         <RateForm />
       </section>

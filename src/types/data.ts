@@ -7,6 +7,8 @@ type RestaurantTags = (typeof RESTAURANT_TAGS)[number];
 type Review = {
   방문자: string;
   별점: number;
+  uid?: string;
+  reviewId?: string;
 };
 
 type RestaurantRawData = {

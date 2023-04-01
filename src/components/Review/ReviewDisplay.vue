@@ -10,10 +10,12 @@
     </p>
     <ReviewList mt-30px>
       <ReviewItem
-        v-for="rate in restaurantMetaData.ratings"
-        :key="rate.방문자"
+        v-for="(rate, index) of restaurantMetaData.ratings"
+        :key="rate.방문자 + index"
         :rater="rate.방문자"
         :rating="rate.별점"
+        :uid="rate.uid"
+        :reviewId="rate.reviewId"
       />
     </ReviewList>
   </section>

@@ -5,12 +5,15 @@ import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-q
 import { useAuthStore } from "@/store/use-auth";
 import { useSelectedRestaurantId } from "@/store/use-selected-restaurant-id";
 import { ref } from "vue";
-import LoadableButton from "../Button/LoadableButton.vue";
+import { LoadableButton } from "../Button";
 import StarRater from "./StarRater.vue";
 
 const selectedRestaurantId = useSelectedRestaurantId();
 
 const isPosingRating = ref<boolean>(false);
+const rangeElement = ref<{
+  resetValue: () => void;
+}>();
 const authStore = useAuthStore();
 const { refetch } = useGetRestaurantsDataQuery();
 
@@ -25,7 +28,8 @@ const handleClick = async (event: Event) => {
     typeof name !== "string" ||
     typeof rating !== "string" ||
     !selectedRestaurantId.value ||
-    !authStore.auth
+    !authStore.auth ||
+    !rangeElement.value
   ) {
     return;
   }
@@ -41,12 +45,13 @@ const handleClick = async (event: Event) => {
   isPosingRating.value = false;
 
   formElement.reset();
+  rangeElement.value.resetValue();
 };
 </script>
 
 <template>
   <form @submit.prevent="handleClick">
-    <StarRater />
+    <StarRater ref="rangeElement" />
     <div flex gap-10px justify-center items-center mt-20px>
       <label for="name">이름</label>
       <input
@@ -61,7 +66,16 @@ const handleClick = async (event: Event) => {
         h-30px
         px-10px
       />
-      <LoadableButton type="submit" :isLoading="isPosingRating">
+      <LoadableButton
+        type="submit"
+        :isLoading="isPosingRating"
+        ml-10px
+        rounded-xl
+        bg-wavveBlue
+        text-white
+        w-100px
+        h-40px
+      >
         별점 남기기
       </LoadableButton>
     </div>
