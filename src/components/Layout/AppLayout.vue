@@ -19,7 +19,7 @@ import AppHeader from "./AppHeader.vue";
   >
     <div overflow-scroll flex flex-col w-full h-full p-24px>
       <AppHeader />
-      <main flex-1 min-h-screen pc:min-h-95vh>
+      <main flex-1>
         <slot />
       </main>
       <AppFooter mt-80px />
