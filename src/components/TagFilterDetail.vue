@@ -10,7 +10,7 @@ const tagFilterText = useRestaurantTagFilterText();
   <DetailWrapper mt-20px>
     <template #summary
       >식사 시간
-      <strong text-wavveLightBlue>
+      <strong text-wavveLightBlue font-500>
         {{ tagFilterText }}
       </strong>
     </template>

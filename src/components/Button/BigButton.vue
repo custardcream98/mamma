@@ -23,7 +23,7 @@ a {
   background-color: white;
   color: #0050ff;
   text-align: center;
-  font-weight: 800;
+  font-weight: 700;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
   transition: all 0.2s ease-in-out;

@@ -7,7 +7,7 @@
     min-w-60px
     text-12px
     text-center
-    font-600
+    font-500
   >
     <slot />
   </li>

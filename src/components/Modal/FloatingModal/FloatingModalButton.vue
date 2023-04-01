@@ -17,7 +17,7 @@ withDefaults(
     block
     text-center
     transition-colors
-    font-600
+    font-500
     px-20px
     py-10px
     w-full

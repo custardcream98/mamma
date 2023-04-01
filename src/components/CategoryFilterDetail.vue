@@ -10,7 +10,7 @@ const filterText = useRestaurantFilterText();
   <DetailWrapper>
     <template #summary
       >카테고리
-      <strong text-wavveLightBlue>
+      <strong text-wavveLightBlue font-500>
         {{ filterText }}
       </strong>
     </template>
