@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { NaverMapButton } from "@/components/Button";
+import InformToLogin from "@/components/InformToLogin.vue";
 import LoadingErrorSuspense from "@/components/LoadingErrorSuspense.vue";
 import { RateForm } from "@/components/RateForm";
 import ResultDisplay from "@/components/ResultDisplay.vue";
@@ -48,9 +49,10 @@ const hasUserRated = computed(() => {
       <ResultDisplay />
       <NaverMapButton />
       <ReviewDisplay />
-      <section v-if="authStore.auth && !hasUserRated">
+      <section>
         <h2 sr-only>별점 남기기</h2>
-        <RateForm />
+        <RateForm v-if="authStore.auth && !hasUserRated" />
+        <InformToLogin mt-40px v-else-if="!authStore.auth" />
       </section>
     </LoadingErrorSuspense>
   </div>
