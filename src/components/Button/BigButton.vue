@@ -21,7 +21,7 @@ a {
   width: 100%;
   border-radius: 9999px;
   background-color: white;
-  color: #204ff5;
+  color: #0050ff;
   text-align: center;
   font-weight: 800;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -32,6 +32,6 @@ a {
 button:hover,
 a:hover {
   color: white;
-  background-color: #204ff5aa;
+  background-color: #0050ffaa;
 }
 </style>
