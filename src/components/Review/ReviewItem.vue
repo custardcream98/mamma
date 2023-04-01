@@ -17,7 +17,9 @@ const props = defineProps<ReviewItemProps>();
 const { refetch } = useGetRestaurantsDataQuery();
 const selectedRestaurantId = useSelectedRestaurantId();
 const authStore = useAuthStore();
-const isUsersReview = computed(() => authStore.auth?.uid === props.uid);
+const isUsersReview = computed<boolean>(
+  () => authStore.auth?.uid === props.uid,
+);
 const isDeletingReview = ref<boolean>(false);
 
 const deleteReview = async () => {
@@ -33,13 +35,22 @@ const deleteReview = async () => {
 </script>
 
 <template>
-  <li bg-wavveLightGray my-8px py-14px px-20px rounded-lg flex justify-between>
+  <li
+    bg-wavveLightGray
+    my-8px
+    py-14px
+    px-20px
+    rounded-lg
+    flex
+    justify-between
+    items-center
+  >
     <span>{{ rater }}</span>
     <strong font-500 flex items-center gap-3px
       >{{ rating.toFixed(1) }}
       <span text-wavveGray> / 5</span>
       <LoadableButton
-        v-if="isUsersReview"
+        v-if="isUsersReview && authStore.auth"
         :is-loading="isDeletingReview"
         warning
         text-red
