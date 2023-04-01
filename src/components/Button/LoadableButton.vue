@@ -6,7 +6,7 @@ defineProps<{
 </script>
 
 <template>
-  <button>
+  <button :disabled="isLoading">
     <slot v-if="!isLoading"></slot>
     <div
       class="lds-ring"
