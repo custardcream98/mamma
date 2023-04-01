@@ -38,6 +38,6 @@ const { pickAndRouteToRandomRestaurant } = useRandomlyPickedRestaurantRouter();
 }
 
 .main-button:hover .hoverblue {
-  color: #204ff5;
+  color: #0050ff;
 }
 </style>
