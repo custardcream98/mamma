@@ -23,6 +23,8 @@ const handleClick = (event: MouseEvent) => {
   inputValue.value = parseFloat(
     (((eventOffsetX - wrapperOffsetX) / WRAPPER_WIDTH) * RANGE).toFixed(1),
   );
+
+  console.log((inputValue.value / RANGE) * WRAPPER_WIDTH);
 };
 </script>
 
@@ -30,7 +32,7 @@ const handleClick = (event: MouseEvent) => {
   <div flex flex-col items-center>
     <div flex cursor-pointer @click="handleClick" ref="starRaterWrapperElement">
       <div overflow-hidden h-50px relative :style="`width: ${filledWidth}px`">
-        <FiveStars absolute left-0 should-fill />
+        <FiveStars should-fill absolute left-0 />
       </div>
       <div
         overflow-hidden

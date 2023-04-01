@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="flex mx-[-5px]">
+  <div flex>
     <StarIcon
       v-for="index of new Array(5).fill(0)"
       :fill="shouldFill ? '#FF27A3' : 'none'"

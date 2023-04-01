@@ -4,6 +4,7 @@
     :width="width"
     :height="height"
     viewBox="0 0 24 24"
+    class="m-[-5px]"
   >
     <title>{{ titleString }}</title>
     <path

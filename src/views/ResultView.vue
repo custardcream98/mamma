@@ -51,7 +51,7 @@ const hasUserRated = computed(() => {
       <ReviewDisplay />
       <section>
         <h2 sr-only>별점 남기기</h2>
-        <RateForm v-if="authStore.auth && !hasUserRated" />
+        <RateForm v-if="authStore.auth && !hasUserRated" my-20px />
         <InformToLogin mt-40px v-else-if="!authStore.auth" />
       </section>
     </LoadingErrorSuspense>
