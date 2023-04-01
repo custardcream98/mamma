@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { INPUT_NAME_NAME } from "@/constants/star-rater";
-import { handleSubmitRating } from "@/request";
+import { postRating } from "@/request";
 import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
 import { useAuthStore } from "@/store/use-auth";
 import { useSelectedRestaurantId } from "@/store/use-selected-restaurant-id";
@@ -35,7 +35,7 @@ const handleClick = async (event: Event) => {
   }
 
   isPosingRating.value = true;
-  await handleSubmitRating({
+  await postRating({
     restaurantId: selectedRestaurantId.value,
     name,
     rating: parseFloat(rating),

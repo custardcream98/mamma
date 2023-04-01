@@ -1,11 +1,17 @@
+import { useAuthStore } from "@/store/use-auth";
 import { googleSheetApi } from "./axios";
 
 const deleteRating = async (reviewId: string, restaurantId: number) => {
+  const authStore = useAuthStore();
+
   try {
     await googleSheetApi.delete(`/rating`, {
       data: {
         reviewId,
         restaurantId,
+      },
+      headers: {
+        authorization: `Bearer ${authStore.token}`,
       },
     });
   } catch (error) {
