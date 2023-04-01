@@ -1,11 +1,11 @@
 import { WAVVE_EMAIL_DOMAIN } from "@/constants/auth";
-import { fireauth } from "@/lib/firebase";
 import {
   deleteUser,
   GoogleAuthProvider,
   signInWithPopup,
   type User,
 } from "@firebase/auth";
+import { fireauth } from "./firebase";
 
 const _checkIfUserIsWavvie = (email: string) => {
   if (email.endsWith(WAVVE_EMAIL_DOMAIN)) {
