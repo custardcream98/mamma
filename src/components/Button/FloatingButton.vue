@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import AddReviewIcon from "@/assets/svgs/AddReviewIcon.vue";
-import { FloatingModal, modalProvide } from "@/components/Modal";
+import SearchItemsIcon from "@/assets/svgs/SearchItemsIcon.vue";
+import { modalProvide } from "@/components/Modal";
 import { useModal } from "@/composables";
+import { RestaurantsModal } from "../Modal/RestaurantsModal";
 
 const { isModalOpened, openModal, closeModal } = useModal();
 modalProvide({ isModalOpened, closeModal, closeOnBackdropClick: true });
@@ -12,16 +13,19 @@ modalProvide({ isModalOpened, closeModal, closeOnBackdropClick: true });
     <button
       type="button"
       @click="openModal"
-      p-18px
+      pt-12px
+      pr-12px
+      pl-18px
+      pb-15px
       rounded-full
       bg-white
       shadow-wavveBlue
       shadow
       cursor-pointer
     >
-      <AddReviewIcon title-string="리뷰 추가하기" />
+      <SearchItemsIcon title-string="검색하기" text-wavveBlue w-35px h-35px />
     </button>
-    <FloatingModal />
+    <RestaurantsModal />
   </aside>
 </template>
 

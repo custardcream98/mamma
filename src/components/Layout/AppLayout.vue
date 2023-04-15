@@ -1,7 +1,9 @@
 <script lang="ts" setup>
+import { useAuthStore } from "@/store/use-auth";
 import FloatingButton from "../Button/FloatingButton.vue";
 import AppFooter from "./AppFooter.vue";
 import AppHeader from "./AppHeader.vue";
+const authStore = useAuthStore();
 </script>
 <template>
   <div
@@ -24,7 +26,7 @@ import AppHeader from "./AppHeader.vue";
       </main>
       <AppFooter mt-80px />
     </div>
-    <FloatingButton absolute right-24px bottom-24px />
+    <FloatingButton absolute right-24px bottom-24px v-show="authStore.auth" />
     <div id="teleport"></div>
   </div>
 </template>

@@ -10,8 +10,8 @@ const queryOptions: UseQueryOptions<
   Restaurant[],
   string[]
 > = {
-  staleTime:
-    import.meta.env.NODE_ENV === "development" ? 0 : 1000 * 60 * 60 * 24,
+  // staleTime:
+  //   import.meta.env.NODE_ENV === "development" ? 0 : 1000 * 60 * 60 * 24,
   queryKey,
   queryFn: getRestaurantsData,
 };
