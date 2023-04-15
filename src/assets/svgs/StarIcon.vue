@@ -23,7 +23,7 @@ type StarIconProps = {
   titleString: string;
   width: SVGAttributes["width"];
   height: SVGAttributes["height"];
-  showStroke: boolean;
+  showStroke?: boolean;
 };
 withDefaults(defineProps<StarIconProps>(), {
   showStroke: false,

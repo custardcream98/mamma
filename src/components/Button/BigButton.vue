@@ -9,7 +9,7 @@
 
 <script lang="ts" setup>
 type BigButtonProps = {
-  as: "button" | "a";
+  as?: "button" | "a";
 };
 withDefaults(defineProps<BigButtonProps>(), {
   as: "button",
