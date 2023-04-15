@@ -8,7 +8,6 @@ const { restaurantMetaData } = useRestaurantMetaData();
 <template>
   <BigButton
     v-if="restaurantMetaData"
-    mt-20px
     as="a"
     target="_blank"
     :href="`https://map.naver.com/v5/search/${encodeURI(

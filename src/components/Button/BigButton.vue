@@ -1,5 +1,8 @@
 <template>
-  <component :is="as" p-10px w-full>
+  <component
+    :is="as"
+    class="block rounded-full bg-white text-wavveBlue text-center font-700 p-10px transition hover:text-white hover:bg-#0050ffaa"
+  >
     <slot />
   </component>
 </template>
@@ -16,22 +19,6 @@ withDefaults(defineProps<BigButtonProps>(), {
 <style scoped>
 button,
 a {
-  display: block;
-  padding: 10px;
-  width: 100%;
-  border-radius: 9999px;
-  background-color: white;
-  color: #0050ff;
-  text-align: center;
-  font-weight: 700;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-  transition: all 0.2s ease-in-out;
-}
-
-button:hover,
-a:hover {
-  color: white;
-  background-color: #0050ffaa;
 }
 </style>

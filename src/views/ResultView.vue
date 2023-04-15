@@ -47,7 +47,7 @@ const hasUserRated = computed(() => {
       :is-loading="isLoadingRestaurantMetaData"
     >
       <ResultDisplay />
-      <NaverMapButton />
+      <NaverMapButton mt-20px />
       <ReviewDisplay />
       <section>
         <h2 sr-only>별점 남기기</h2>
