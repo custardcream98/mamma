@@ -35,7 +35,7 @@ type RestaurantMetaData = {
   location: string;
   reviewer: string;
   review: string;
-  ratingAvg: number;
+  ratingAvg: string;
   tags: RestaurantTags[];
   ratings: Review[];
 };

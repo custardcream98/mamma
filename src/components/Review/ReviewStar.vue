@@ -15,11 +15,7 @@ const { restaurantMetaData } = useRestaurantMetaData();
       height="20"
     />
     <p text-16px font-500 ml-4px mr-auto>
-      {{
-        restaurantMetaData.ratingAvg
-          ? restaurantMetaData.ratingAvg.toFixed(1)
-          : "-"
-      }}
+      {{ restaurantMetaData.ratingAvg }}
       <span text-wavveGray> / 5 </span>
     </p>
   </div>

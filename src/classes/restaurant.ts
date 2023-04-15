@@ -16,7 +16,7 @@ class Restaurant {
   private _location: string;
   private _reviewer: string;
   private _review: string;
-  private _ratingAvg: number;
+  private _ratingAvg: string;
   private _tags: RestaurantTags[];
   private _ratings: Review[];
 
@@ -33,7 +33,7 @@ class Restaurant {
     this._location = data["위치"];
     this._reviewer = data["최초 공유자 이름"];
     this._review = data["공유자 평"];
-    this._ratingAvg = data["평균 별점"];
+    this._ratingAvg = data["평균 별점"] ? data["평균 별점"].toFixed(1) : " - ";
     this._tags = RESTAURANT_TAGS.filter((tag) => data[tag]);
 
     this._ratings = data["reviews"];
