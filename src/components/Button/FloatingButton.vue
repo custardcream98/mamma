@@ -13,17 +13,24 @@ modalProvide({ isModalOpened, closeModal, closeOnBackdropClick: true });
     <button
       type="button"
       @click="openModal"
-      pt-12px
-      pr-12px
-      pl-18px
-      pb-15px
+      w-60px
+      h-60px
       rounded-full
       bg-white
       shadow-wavveBlue
       shadow
       cursor-pointer
+      flex
+      items-center
+      justify-center
     >
-      <SearchItemsIcon title-string="검색하기" text-wavveBlue w-35px h-35px />
+      <SearchItemsIcon
+        title-string="검색하기"
+        text-wavveBlue
+        w-35px
+        h-35px
+        ml-5px
+      />
     </button>
     <RestaurantsModal />
   </aside>
