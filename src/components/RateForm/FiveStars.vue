@@ -9,11 +9,11 @@ defineProps<{
 <template>
   <div flex>
     <StarIcon
-      v-for="index of new Array(5).fill(0)"
+      v-for="_ of new Array(5).fill(0)"
       :fill="shouldFill ? '#FF27A3' : 'none'"
-      :title-string="'별' + index"
-      width="50"
-      height="50"
+      title-string="별"
+      width="40"
+      height="40"
       showStroke
     />
   </div>
