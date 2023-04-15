@@ -3,6 +3,7 @@ import {
   deleteUser,
   GoogleAuthProvider,
   signInWithPopup,
+  updateProfile,
   type User,
 } from "@firebase/auth";
 import { fireauth } from "./firebase";
@@ -22,9 +23,15 @@ googleProvider.addScope("email");
 const loginGoogle = async () => {
   try {
     const loginResult = await signInWithPopup(fireauth, googleProvider);
-    const { email } = loginResult.user;
+    const { email, displayName } = loginResult.user;
     if (!email || !_checkIfUserIsWavvie(email)) {
       throw { code: "auth/not-wavvie", user: loginResult.user };
+    }
+
+    if (!displayName) {
+      await updateProfile(loginResult.user, {
+        displayName: email.split("@")[0],
+      });
     }
   } catch (error) {
     console.error(error);
