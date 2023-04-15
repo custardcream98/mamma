@@ -7,8 +7,23 @@ const { isModalOpened } = modalInject();
 
 <template>
   <ModalTeleport>
-    <ModalBackdrop v-show="isModalOpened">
-      <slot></slot>
-    </ModalBackdrop>
+    <Transition name="modal" mode="out-in">
+      <ModalBackdrop v-show="isModalOpened">
+        <slot></slot>
+      </ModalBackdrop>
+    </Transition>
   </ModalTeleport>
 </template>
+
+<style scoped>
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  transform: translateY(-100px);
+  opacity: 0;
+}
+</style>
