@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRestaurantMetaData } from "@/composables";
-import BigButton from "./BigButton.vue";
+import { BigButton } from ".";
 
 const { restaurantMetaData } = useRestaurantMetaData();
 </script>
