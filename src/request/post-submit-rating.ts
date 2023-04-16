@@ -9,7 +9,6 @@ const postRating = async ({
   uid,
 }: CreatedReview) => {
   const authStore = useAuthStore();
-  console.log(`Bearer ${authStore.token}`);
 
   try {
     await googleSheetApi.post(
