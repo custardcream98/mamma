@@ -7,6 +7,7 @@
       sr-only
       v-model="checked"
       @change="$emit('checkbox-change', { checked, value })"
+      v-bind="$attrs"
     />
     <span
       class="label-text"
@@ -25,6 +26,12 @@
     </span>
   </label>
 </template>
+
+<script lang="ts">
+export default {
+  inheritAttrs: false,
+};
+</script>
 
 <script lang="ts" setup>
 import { ref, type Ref } from "vue";
