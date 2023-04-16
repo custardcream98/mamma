@@ -17,6 +17,6 @@ defineProps<{
 <style scoped>
 .warning {
   --at-apply: text-red font-500 text-sm rounded-full border border-red px-8px
-    py-4px;
+    py-4px flex justify-center items-center;
 }
 </style>
