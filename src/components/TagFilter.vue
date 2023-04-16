@@ -1,5 +1,6 @@
 <template>
   <RoundedBadgeWrapper as="fieldset">
+    <legend sr-only>레스토랑 태그</legend>
     <RoundedBadgeCheckbox
       v-for="tag of RESTAURANT_TAGS"
       :key="tag"

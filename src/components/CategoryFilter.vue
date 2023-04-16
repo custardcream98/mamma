@@ -1,5 +1,6 @@
 <template>
   <RoundedBadgeWrapper as="fieldset">
+    <legend sr-only>레스토랑 타입</legend>
     <RoundedBadgeCheckbox
       v-for="category of RESTAURANT_TYPES"
       :key="category"
