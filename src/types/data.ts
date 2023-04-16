@@ -12,6 +12,7 @@ type Review = {
 };
 
 type RestaurantRawData = {
+  uid?: string;
   등록순번: string;
   종류: RestaurantType;
   상호: string;
@@ -25,6 +26,17 @@ type RestaurantRawData = {
 } & Record<RestaurantTags, boolean>;
 
 type RestaurantType = (typeof RESTAURANT_TYPES)[number];
+
+type CreatedRestaurant = {
+  name: string;
+  type: RestaurantType;
+  menu: string;
+  price: number;
+  review: string;
+  location: string;
+  tags: RestaurantTags[];
+  rating: number;
+};
 
 type RestaurantMetaData = {
   id: number;
@@ -47,4 +59,5 @@ export type {
   RestaurantType,
   RestaurantMetaData,
   RestaurantTags,
+  CreatedRestaurant,
 };
