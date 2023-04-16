@@ -2,12 +2,25 @@
 import type Restaurant from "@/classes/restaurant";
 import useDebounce from "@/composables/use-debounce";
 import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
+import { useSearchTarget } from "@/store/use-search-target";
 import { ref, watchEffect } from "vue";
-import { RestaurantsSearchInput, RestaurantsSearchResults } from ".";
+import {
+  RestaurantsCreateButton,
+  RestaurantsSearchInput,
+  RestaurantsSearchResults,
+} from ".";
 import { modalInject } from "../Modal";
 
-const inputValue = ref<string>("");
+const emit = defineEmits<{
+  (e: "toNextPage"): void;
+}>();
+
+const searchTarget = useSearchTarget();
 const searchResult = ref<Restaurant[]>();
+const handleCreateRestaurantClick = () => {
+  emit("toNextPage");
+};
+
 const { data: restaurantsData } = useGetRestaurantsDataQuery();
 const search = (target: string) => {
   if (!target) {
@@ -22,26 +35,42 @@ const search = (target: string) => {
   searchResult.value = result;
 };
 
-useDebounce(inputValue, search, 0);
+useDebounce(searchTarget, search, 0);
 
 const { isModalOpened } = modalInject();
 
 watchEffect(() => {
   if (!isModalOpened.value) {
-    inputValue.value = "";
+    searchTarget.value = "";
   }
 });
 </script>
 
 <template>
-  <RestaurantsSearchInput v-model="inputValue" />
-  <p v-if="!inputValue" flex-1 flex items-center justify-center>
-    검색어를 입력해주세요
-  </p>
-  <RestaurantsSearchResults
-    v-else
-    w-full
-    :data="searchResult ?? []"
-    :searchTarget="inputValue"
-  />
+  <div flex-1 flex flex-col>
+    <RestaurantsSearchInput v-model="searchTarget" />
+    <p v-if="!searchTarget" flex-1 flex items-center justify-center>
+      검색어를 입력해주세요
+    </p>
+    <template v-else>
+      <RestaurantsSearchResults w-full :data="searchResult ?? []" />
+      <RestaurantsCreateButton
+        type="button"
+        @click="handleCreateRestaurantClick"
+      />
+    </template>
+  </div>
 </template>
+
+<style scoped>
+.restaurant-search-enter-active,
+.restaurant-search-leave-active {
+  transition: all 0.2s ease-in-out;
+}
+
+.restaurant-search-enter-from,
+.restaurant-search-leave-to {
+  transform: translate(100px);
+  opacity: 0;
+}
+</style>
