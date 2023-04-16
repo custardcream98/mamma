@@ -27,7 +27,7 @@ watchEffect(() => {
         <Transition name="modal-title" mode="out-in">
           <strong v-if="modalPage === 0">검색하기</strong>
           <strong class="max-w-[calc(100%-20px)] truncate" v-else>
-            <span>{{ searchTarget }}" </span>
+            <span>"{{ searchTarget }}" </span>
             <wbr />
             <span>등록하기</span>
           </strong>
