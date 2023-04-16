@@ -8,6 +8,7 @@ import type {
 import isRestaurantRawData from "@/types/guards/isRestaurantRawData";
 
 class Restaurant {
+  private _uid?: string;
   private _id: number;
   private _name: string;
   private _type: RestaurantType;
@@ -25,6 +26,7 @@ class Restaurant {
       throw new Error("Invalid data");
     }
 
+    this._uid = data["uid"];
     this._id = parseInt(data["등록순번"]);
     this._name = data["상호"];
     this._type = data["종류"];
@@ -45,6 +47,7 @@ class Restaurant {
 
   get meta(): RestaurantMetaData {
     return {
+      uid: this._uid,
       id: this._id,
       name: this._name,
       type: this._type,

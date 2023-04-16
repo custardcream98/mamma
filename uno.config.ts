@@ -1,5 +1,10 @@
 import presetWind from "@unocss/preset-wind";
-import { defineConfig, presetAttributify, presetUno } from "unocss";
+import {
+  defineConfig,
+  presetAttributify,
+  presetUno,
+  transformerDirectives,
+} from "unocss";
 
 const unocssConfig = defineConfig({
   include: [/\.variants\.[jt]s$/u, /\.[jt]sx?$/u, /\.vue$/u],
@@ -25,6 +30,7 @@ const unocssConfig = defineConfig({
       wavveBlue_800: "#0050FFFF",
     },
   },
+  transformers: [transformerDirectives()],
 });
 
 export default unocssConfig;

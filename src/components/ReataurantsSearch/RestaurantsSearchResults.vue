@@ -2,7 +2,6 @@
 import type Restaurant from "@/classes/restaurant";
 import { RestaurantsSearchResultsItem } from ".";
 defineProps<{
-  searchTarget: string;
   data: Restaurant[];
 }>();
 </script>
@@ -15,14 +14,11 @@ defineProps<{
         b-b-1
         transition-colors
         hover:bg-wavveBlue_100
-        :searchTarget="searchTarget"
         :restaurantId="meta.id"
         :restaurantName="meta.name"
         :restarurantRating="meta.ratingAvg"
+        :key="meta.id"
       />
     </li>
-    <!-- <li py-8px transition-colors hover:bg-wavveBlue_100>
-      "{{ searchTarget }}" 식당 최초로 등록하기
-    </li> -->
   </ul>
 </template>

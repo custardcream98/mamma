@@ -1,20 +1,31 @@
 <script setup lang="ts">
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
+import { ROUTE_NAME } from "@/constants/route";
+import { routeResolver } from "@/utils/route";
+import { watchEffect } from "vue";
+import { useRouter } from "vue-router";
 
-defineProps<{
+const props = defineProps<{
   isLoading: boolean;
   isError: boolean;
   error: unknown;
 }>();
+const router = useRouter();
+
+watchEffect(() => {
+  if (!props.isError) {
+    return;
+  }
+
+  console.error(props.error);
+
+  router.push(routeResolver(ROUTE_NAME.HOME));
+});
 </script>
 
 <template>
-  <template v-if="isLoading">
+  <template v-if="isLoading || isError">
     <LoadingIndicator />
-  </template>
-  <template v-else-if="isError">
-    <p>에러가 발생했습니다.</p>
-    <p>{{ error }}</p>
   </template>
   <template v-else>
     <slot />

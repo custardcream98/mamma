@@ -1,5 +1,5 @@
 import { defineStore, storeToRefs } from "pinia";
-import { ref, watchEffect, type Ref } from "vue";
+import { ref } from "vue";
 
 const useSelectedRestaurantIdStore = defineStore(
   "selected-restaurant-id",
@@ -23,16 +23,4 @@ const useSelectedRestaurantId = () => {
   return selectedRestaurantId;
 };
 
-const useSetSelectedRestaurantId = (id: Ref<number>) => {
-  const store = useSelectedRestaurantIdStore();
-
-  watchEffect(() => {
-    store.setSelectedRestaurantId(id.value);
-  });
-};
-
-export {
-  useSelectedRestaurantIdStore,
-  useSelectedRestaurantId,
-  useSetSelectedRestaurantId,
-};
+export { useSelectedRestaurantIdStore, useSelectedRestaurantId };

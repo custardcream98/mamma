@@ -9,7 +9,7 @@ defineProps<{
   <div
     class="lds-ring"
     :class="{
-      warning,
+      warningRing: warning,
       blue,
     }"
   >
@@ -41,12 +41,16 @@ defineProps<{
   border-color: #fff transparent transparent transparent;
 }
 
-.warning div {
-  border: 4px solid rgb(248, 113, 113);
+.warningRing {
+  width: 20px;
+  height: 20px;
+}
+.warningRing div {
   border-color: rgb(248, 113, 113) transparent transparent transparent;
   width: 20px;
   height: 20px;
-  top: -4px;
+  margin: 0;
+  top: 0;
 }
 
 .blue {
