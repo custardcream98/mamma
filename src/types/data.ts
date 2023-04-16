@@ -39,6 +39,7 @@ type CreatedRestaurant = {
 };
 
 type RestaurantMetaData = {
+  uid?: string;
   id: number;
   name: string;
   type: RestaurantType;

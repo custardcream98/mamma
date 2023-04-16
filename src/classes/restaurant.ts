@@ -47,6 +47,7 @@ class Restaurant {
 
   get meta(): RestaurantMetaData {
     return {
+      uid: this._uid,
       id: this._id,
       name: this._name,
       type: this._type,

@@ -74,9 +74,7 @@ const handleSubmit = async (event: Event) => {
       routeResolver(ROUTE_NAME.RESULT, createdRestaurantId.toString()),
     );
     closeModal();
-  } catch (error) {
-    console.error(error);
-    alert("등록에 실패했습니다. 다시 시도해주세요.");
+  } catch (_) {
     isRestaurantCreating.value = false;
   }
 };
