@@ -4,7 +4,7 @@ import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-q
 import { useAuthStore } from "@/store/use-auth";
 import { useSelectedRestaurantId } from "@/store/use-selected-restaurant-id";
 import { ref } from "vue";
-import BigButton from "../Button/BigButton.vue";
+import { BigButton } from "../Button";
 import StarRater from "./StarRater.vue";
 
 const selectedRestaurantId = useSelectedRestaurantId();
