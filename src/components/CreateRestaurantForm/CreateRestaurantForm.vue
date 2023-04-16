@@ -88,6 +88,7 @@ const handleSubmit = async (event: Event) => {
       label="대표 메뉴"
       type="text"
       placeholder="내용을 입력해주세요."
+      maxlength="20"
       required
     />
     <CreateRestaurantInput
@@ -106,6 +107,7 @@ const handleSubmit = async (event: Event) => {
       label="위치"
       type="text"
       placeholder="내용을 입력해주세요."
+      maxlength="100"
       required
     />
     <CreateRestaurantTags />
@@ -114,6 +116,7 @@ const handleSubmit = async (event: Event) => {
       name="review"
       label="최초 공유자의 한마디"
       placeholder="내용을 입력해주세요."
+      maxlength="300"
       required
     />
     <StarRater />

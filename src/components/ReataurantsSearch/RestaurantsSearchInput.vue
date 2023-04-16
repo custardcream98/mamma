@@ -32,6 +32,7 @@ const handleInput = (e: Event) => {
       autocomplete="off"
       spellcheck="false"
       autocapitalize="off"
+      maxlength="30"
       class="w-[calc(100%-30px)] py-5px rounded transition-all focus:outline-offset-4 focus:outline-wavveBlue"
       v-bind="$attrs"
       :value="modelValue"
