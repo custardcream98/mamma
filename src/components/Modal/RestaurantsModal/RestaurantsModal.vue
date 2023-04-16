@@ -23,13 +23,15 @@ watchEffect(() => {
 <template>
   <ModalWrapper>
     <ModalBody flex flex-col>
-      <div flex justify-between items-center>
-        <strong text-20px>
-          <Transition name="modal-title" mode="out-in">
-            <span v-if="modalPage === 0">검색하기</span>
-            <span v-else>{{ searchTarget }} 등록하기</span>
-          </Transition>
-        </strong>
+      <div flex justify-between items-center text-20px>
+        <Transition name="modal-title" mode="out-in">
+          <strong v-if="modalPage === 0">검색하기</strong>
+          <strong class="max-w-[calc(100%-20px)] truncate" v-else>
+            <span>{{ searchTarget }}" </span>
+            <wbr />
+            <span>등록하기</span>
+          </strong>
+        </Transition>
         <ModalCloseButton />
       </div>
       <Transition name="restaurant-search" mode="out-in">

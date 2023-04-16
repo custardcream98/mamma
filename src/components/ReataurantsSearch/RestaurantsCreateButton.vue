@@ -13,9 +13,11 @@ const searchTarget = useSearchTarget();
     flex
     justify-between
     items-center
+    class="max-w-100%"
   >
-    <strong font-300>
-      <span font-500>"{{ searchTarget }}"</span>
+    <strong font-300 class="max-w-[calc(100%-25px)] truncate">
+      <span font-500> "{{ searchTarget }}" </span>
+      <wbr />
       <span> 식당 최초로 등록하기</span>
     </strong>
     <img :src="PartyFace" alt="" width="20" height="20" />
