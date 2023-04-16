@@ -41,12 +41,17 @@ defineProps<{
   border-color: #fff transparent transparent transparent;
 }
 
+.warning {
+  width: 20px;
+  height: 20px;
+}
 .warning div {
   border: 4px solid rgb(248, 113, 113);
   border-color: rgb(248, 113, 113) transparent transparent transparent;
   width: 20px;
   height: 20px;
   top: -4px;
+  left: -4px;
 }
 
 .blue {

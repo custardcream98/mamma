@@ -53,18 +53,11 @@ const deleteReview = async () => {
         v-if="isUsersReview && authStore.auth"
         :is-loading="isDeletingReview"
         warning
-        text-red
-        font-500
-        text-sm
-        rounded-full
-        border
-        border-red
-        px-8px
-        py-4px
         ml-8px
         w-50px
         h-30px
         @click="deleteReview"
+        type="button"
       >
         삭제
       </LoadableButton>
