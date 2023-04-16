@@ -8,7 +8,7 @@ import { ROUTE } from "@/constants/route";
   <header flex justify-between items-center>
     <h1>
       <RouterLink :to="ROUTE.HOME">
-        <MammaLogo mt-8px />
+        <MammaLogo />
       </RouterLink>
     </h1>
     <LoginLogoutBar />

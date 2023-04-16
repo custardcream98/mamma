@@ -14,7 +14,7 @@ const authStore = useAuthStore();
   >
     로그인
   </button>
-  <div text-14px text-wavveDarkGray v-else>
+  <div text-12px text-wavveDarkGray small:text-14px v-else>
     <button
       type="button"
       @click="logoutGoogle"

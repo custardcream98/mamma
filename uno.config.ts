@@ -12,6 +12,7 @@ const unocssConfig = defineConfig({
   theme: {
     breakpoints: {
       pc: "448px",
+      small: "390px",
     },
     colors: {
       wavveGray: "#A5A5A5",

@@ -18,7 +18,7 @@ defineProps<CreateRestaurantInputProps>();
     <label :for="$attrs.id as string" break-keep>{{ label }}</label>
     <input
       :id="$attrs.id as string"
-      class="w-210px text-wavveDarkGray py-4px px-8px bg-badgeGray rounded-2 focus:outline-wavveBlue"
+      class="w-180px text-wavveDarkGray py-4px px-8px bg-badgeGray rounded-2 focus:outline-wavveBlue small:w-210px"
       autocapitalize="off"
       autocomplete="off"
       autocorrect="off"
