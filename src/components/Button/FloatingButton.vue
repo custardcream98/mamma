@@ -17,8 +17,6 @@ modalProvide({ isModalOpened, closeModal, closeOnBackdropClick: true });
       h-60px
       rounded-full
       bg-white
-      shadow-wavveBlue
-      shadow
       cursor-pointer
       flex
       items-center
@@ -39,6 +37,7 @@ modalProvide({ isModalOpened, closeModal, closeOnBackdropClick: true });
 <style scoped>
 button {
   transition: all 0.2s ease-in-out;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 button:hover {
   scale: 1.05;
