@@ -12,6 +12,10 @@ const props = defineProps<{
 const router = useRouter();
 
 watchEffect(() => {
+  if (router.currentRoute.value.name === ROUTE_NAME.HOME) {
+    return;
+  }
+
   if (!props.isError) {
     return;
   }
@@ -23,8 +27,11 @@ watchEffect(() => {
 </script>
 
 <template>
-  <template v-if="isLoading || isError">
+  <template v-if="isLoading">
     <LoadingIndicator />
+  </template>
+  <template v-else-if="isError">
+    <slot name="error" />
   </template>
   <template v-else>
     <slot />
