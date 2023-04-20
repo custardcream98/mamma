@@ -8,7 +8,7 @@ import {
 </script>
 
 <template>
-  <RoundedBadgeWrapper>
+  <RoundedBadgeWrapper as="fieldset">
     <legend mb-10px>카테고리</legend>
     <RoundedBadgeRadioButton
       v-for="type of RESTAURANT_TYPES"
@@ -19,7 +19,7 @@ import {
       >{{ type }}</RoundedBadgeRadioButton
     >
   </RoundedBadgeWrapper>
-  <RoundedBadgeWrapper as="fieldset">
+  <RoundedBadgeWrapper mt-16px as="fieldset">
     <legend mb-10px>태그</legend>
     <RoundedBadgeCheckbox
       v-for="tag of RESTAURANT_TAGS"

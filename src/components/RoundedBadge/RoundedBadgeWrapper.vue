@@ -1,5 +1,5 @@
 <template>
-  <component :is="as" mt-16px flex flex-wrap gap-8px>
+  <component :is="as" flex flex-wrap gap-8px>
     <slot />
   </component>
 </template>

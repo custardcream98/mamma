@@ -15,7 +15,7 @@ const tagFilterText = useRestaurantTagFilterText();
       </strong>
     </template>
     <template #detail>
-      <TagFilter />
+      <TagFilter mt-16px />
     </template>
   </DetailWrapper>
 </template>
