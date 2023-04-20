@@ -4,7 +4,7 @@
     <RoundedBadgeCheckbox
       v-for="category of RESTAURANT_TYPES"
       :key="category"
-      :default-checked="store.filter.includes(category)"
+      :default-checked="typeFilterStore.filter.includes(category)"
       :value="category"
       @checkbox-change="handleFilterChange"
       >{{ category }}</RoundedBadgeCheckbox
@@ -18,11 +18,11 @@ import {
   RoundedBadgeWrapper,
 } from "@/components/RoundedBadge";
 import { RESTAURANT_TYPES } from "@/constants/data";
-import { useRestaurantFilterStore } from "@/store/use-restaurant-filter";
+import { useRestaurantTypeFilterStore } from "@/store/use-restaurant-type-filter";
 import isRestaurantType from "@/types/guards/isRestaurantType";
 import type { CheckboxChangeEvent } from "./RoundedBadge/RoundedBadgeCheckbox.vue";
 
-const store = useRestaurantFilterStore();
+const typeFilterStore = useRestaurantTypeFilterStore();
 
 const handleFilterChange = ({ checked, value }: CheckboxChangeEvent) => {
   if (!isRestaurantType(value)) {
@@ -30,9 +30,9 @@ const handleFilterChange = ({ checked, value }: CheckboxChangeEvent) => {
   }
 
   if (checked) {
-    store.addFilter(value);
+    typeFilterStore.addFilter(value);
   } else {
-    store.removeFilter(value);
+    typeFilterStore.removeFilter(value);
   }
 };
 </script>

@@ -1,39 +1,29 @@
+import useFilter from "@/composables/use-filter";
 import { RESTAURANT_TAGS } from "@/constants/data";
-import type { RestaurantTags } from "@/types/data";
-import { sortArrayInOrder } from "@/utils/array";
 import { defineStore, storeToRefs } from "pinia";
-import { computed, ref } from "vue";
+import { computed } from "vue";
 
 const useRestaurantTagFilterStore = defineStore("restaurant-tag-filter", () => {
-  const tagFilter = ref<RestaurantTags[]>([...RESTAURANT_TAGS]);
+  const { filter, addFilter, removeFilter } = useFilter({
+    initialFilter: [...RESTAURANT_TAGS],
+    filterOrder: RESTAURANT_TAGS,
+  });
 
-  const sortFilter = () => {
-    tagFilter.value = sortArrayInOrder(RESTAURANT_TAGS, tagFilter.value);
-  };
-
-  const addFilter = (type: RestaurantTags) => {
-    tagFilter.value.push(type);
-    sortFilter();
-  };
-  const removeFilter = (type: RestaurantTags) => {
-    tagFilter.value = tagFilter.value.filter((t) => t !== type);
-    sortFilter();
-  };
-  const tagFilterText = computed(() => {
-    if (tagFilter.value.length === RESTAURANT_TAGS.length) {
+  const filterText = computed(() => {
+    if (filter.value.length === RESTAURANT_TAGS.length) {
       return "전체";
     }
 
-    if (tagFilter.value.length <= 2) {
-      return tagFilter.value.join(", ");
+    if (filter.value.length <= 2) {
+      return filter.value.join(", ");
     }
 
-    return tagFilter.value[0] + " 외 " + (tagFilter.value.length - 1) + "개";
+    return filter.value[0] + " 외 " + (filter.value.length - 1) + "개";
   });
 
   return {
-    tagFilter,
-    tagFilterText,
+    filter,
+    filterText,
     addFilter,
     removeFilter,
   };
@@ -41,9 +31,9 @@ const useRestaurantTagFilterStore = defineStore("restaurant-tag-filter", () => {
 
 const useRestaurantTagFilterText = () => {
   const store = useRestaurantTagFilterStore();
-  const { tagFilterText } = storeToRefs(store);
+  const { filterText } = storeToRefs(store);
 
-  return tagFilterText;
+  return filterText;
 };
 
 export { useRestaurantTagFilterStore, useRestaurantTagFilterText };

@@ -4,7 +4,7 @@
     <RoundedBadgeCheckbox
       v-for="tag of RESTAURANT_TAGS"
       :key="tag"
-      :default-checked="store.tagFilter.includes(tag)"
+      :default-checked="tagFilterStore.filter.includes(tag)"
       :value="tag"
       @checkbox-change="handleFilterChange"
       >{{ tag }}</RoundedBadgeCheckbox
@@ -22,7 +22,7 @@ import { useRestaurantTagFilterStore } from "@/store/use-tag-filter";
 import isRestaurantTagsType from "@/types/guards/isRestaurantTagsType";
 import type { CheckboxChangeEvent } from "./RoundedBadge/RoundedBadgeCheckbox.vue";
 
-const store = useRestaurantTagFilterStore();
+const tagFilterStore = useRestaurantTagFilterStore();
 
 const handleFilterChange = ({ checked, value }: CheckboxChangeEvent) => {
   if (!isRestaurantTagsType(value)) {
@@ -30,9 +30,9 @@ const handleFilterChange = ({ checked, value }: CheckboxChangeEvent) => {
   }
 
   if (checked) {
-    store.addFilter(value);
+    tagFilterStore.addFilter(value);
   } else {
-    store.removeFilter(value);
+    tagFilterStore.removeFilter(value);
   }
 };
 </script>

@@ -1,6 +1,6 @@
 import { ROUTE_NAME } from "@/constants/route";
 import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
-import { useRestaurantFilterStore } from "@/store/use-restaurant-filter";
+import { useRestaurantTypeFilterStore } from "@/store/use-restaurant-type-filter";
 import { useRestaurantTagFilterStore } from "@/store/use-tag-filter";
 import { randomlyPickInArray } from "@/utils/array";
 import { useRouter } from "vue-router";
@@ -8,7 +8,7 @@ import { useRouter } from "vue-router";
 const useRandomlyPickedRestaurantRouter = () => {
   const router = useRouter();
 
-  const store = useRestaurantFilterStore();
+  const typeStore = useRestaurantTypeFilterStore();
   const tagStore = useRestaurantTagFilterStore();
 
   const {
@@ -23,18 +23,18 @@ const useRandomlyPickedRestaurantRouter = () => {
       return;
     }
 
-    if (!store.filter.length) {
+    if (!typeStore.filter.length) {
       return alert("하나 이상의 카테고리를 선택해주세요.");
     }
 
-    if (!tagStore.tagFilter.length) {
+    if (!tagStore.filter.length) {
       return alert("하나 이상의 식사 시간을 선택해주세요.");
     }
 
     const filteredRestaurants = restaurants.value
-      .filter((data) => store.filter.includes(data.meta.type))
+      .filter((data) => typeStore.filter.includes(data.meta.type))
       .filter((data) =>
-        data.meta.tags.some((tag) => tagStore.tagFilter.includes(tag)),
+        data.meta.tags.some((tag) => tagStore.filter.includes(tag)),
       );
 
     if (!filteredRestaurants.length) {
