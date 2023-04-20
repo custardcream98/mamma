@@ -1,6 +1,6 @@
 import { RESTAURANT_TYPES } from "@/constants/data";
 import type { RestaurantType } from "@/types/data";
-import { sortArrayInConstArrayOrder } from "@/utils/array";
+import { sortArrayInOrder } from "@/utils/array";
 import { defineStore, storeToRefs } from "pinia";
 import { computed, ref } from "vue";
 
@@ -8,7 +8,7 @@ const useRestaurantFilterStore = defineStore("restaurant-filter", () => {
   const filter = ref<RestaurantType[]>([...RESTAURANT_TYPES]);
 
   const sortFilter = () => {
-    filter.value = sortArrayInConstArrayOrder(RESTAURANT_TYPES, filter.value);
+    filter.value = sortArrayInOrder(RESTAURANT_TYPES, filter.value);
   };
 
   const addFilter = (type: RestaurantType) => {
