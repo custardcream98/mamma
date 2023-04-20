@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import InformToLogin from "@/components/InformToLogin.vue";
 import { RateForm } from "@/components/RateForm";
 import { useRestaurantMetaData } from "@/composables";
 import { useAuthStore } from "@/store/use-auth";
@@ -31,7 +30,9 @@ const hasUserCreated = computed(() => {
 <template>
   <section>
     <h2 sr-only>별점 남기기</h2>
-    <InformToLogin mt-40px v-if="!authStore.auth" />
+    <p text-center text-wavveGray mt-40px v-if="!authStore.auth">
+      로그인해서 별점을 남겨보세요!
+    </p>
     <DeleteResturant v-else-if="hasUserCreated" />
     <RateForm my-20px v-else-if="!hasUserRated" />
   </section>
