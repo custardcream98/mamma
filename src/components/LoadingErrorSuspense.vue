@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
 import { ROUTE_NAME } from "@/constants/route";
-import { routeResolver } from "@/utils/route";
 import { watchEffect } from "vue";
 import { useRouter } from "vue-router";
 
@@ -19,7 +18,7 @@ watchEffect(() => {
 
   console.error(props.error);
 
-  router.push(routeResolver(ROUTE_NAME.HOME));
+  router.push({ name: ROUTE_NAME.HOME });
 });
 </script>
 

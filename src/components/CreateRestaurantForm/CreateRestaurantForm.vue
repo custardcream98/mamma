@@ -4,7 +4,6 @@ import { createRestaurant } from "@/request/post-create-restaurant";
 import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
 import { useSearchTarget } from "@/store/use-search-target";
 import type { RestaurantTags, RestaurantType } from "@/types/data";
-import { routeResolver } from "@/utils/route";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import {
@@ -70,9 +69,10 @@ const handleSubmit = async (event: Event) => {
     await refetch();
 
     isRestaurantCreating.value = false;
-    router.push(
-      routeResolver(ROUTE_NAME.RESULT, createdRestaurantId.toString()),
-    );
+    router.push({
+      name: ROUTE_NAME.RESULT,
+      params: { restaurantId: createdRestaurantId },
+    });
     closeModal();
   } catch (_) {
     isRestaurantCreating.value = false;

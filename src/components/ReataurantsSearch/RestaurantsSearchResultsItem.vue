@@ -2,7 +2,6 @@
 import { ROUTE_NAME } from "@/constants/route";
 
 import { useSearchTarget } from "@/store/use-search-target";
-import { routeResolver } from "@/utils/route";
 import { computed } from "vue";
 import { RouterLink } from "vue-router";
 import { modalInject } from "../Modal";
@@ -27,7 +26,10 @@ const matchResult = computed(() => {
     flex
     justify-between
     @click="closeModal"
-    :to="routeResolver(ROUTE_NAME.RESULT, restaurantId.toString())"
+    :to="{
+      name: ROUTE_NAME.RESULT,
+      params: { restaurantId: props.restaurantId },
+    }"
   >
     <strong font-300>
       <span>{{ matchResult.prefix }}</span>
