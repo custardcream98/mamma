@@ -24,9 +24,9 @@ const authStore = useAuthStore();
       <main flex-1>
         <slot />
       </main>
-      <AppFooter mt-80px />
+      <AppFooter mt-80px :should-blank-right="!!authStore.auth" />
     </div>
-    <FloatingButton absolute right-24px bottom-24px v-show="authStore.auth" />
+    <FloatingButton absolute right-24px bottom-24px v-show="!!authStore.auth" />
     <div id="teleport"></div>
   </div>
 </template>
