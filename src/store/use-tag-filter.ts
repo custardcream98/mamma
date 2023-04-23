@@ -1,4 +1,4 @@
-import useFilter from "@/composables/use-filter";
+import { useFilter } from "@/composables";
 import { RESTAURANT_TAGS } from "@/constants/data";
 import { defineStore, storeToRefs } from "pinia";
 import { computed } from "vue";

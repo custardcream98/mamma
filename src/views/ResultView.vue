@@ -10,8 +10,10 @@ import {
   RoundedBadgeItem,
   RoundedBadgeWrapper,
 } from "@/components";
-import { useRestaurantMetaData } from "@/composables";
-import useRandomlyPickedRestaurantRouter from "@/composables/use-randomly-picked-restaurant-router";
+import {
+  useRandomlyPickedRestaurantRouter,
+  useRestaurantMetaData,
+} from "@/composables";
 import { useSelectedRestaurantIdStore } from "@/store/use-selected-restaurant-id";
 import isString from "@/types/guards/isString";
 import { watchEffect } from "vue";

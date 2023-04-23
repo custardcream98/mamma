@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type Restaurant from "@/classes/restaurant";
 import { modalInject } from "@/components";
-import useDebounce from "@/composables/use-debounce";
+import { useDebounce } from "@/composables";
 import { useGetRestaurantsDataQuery } from "@/request";
 import { useSearchTarget } from "@/store/use-search-target";
 import { ref, watchEffect } from "vue";

@@ -5,7 +5,7 @@ import {
   LoadingErrorSuspense,
   TagFilterDetail,
 } from "@/components";
-import useRandomlyPickedRestaurantRouter from "@/composables/use-randomly-picked-restaurant-router";
+import { useRandomlyPickedRestaurantRouter } from "@/composables";
 
 const {
   pickAndRouteToRandomRestaurant,
