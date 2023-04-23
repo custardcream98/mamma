@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { BigButton } from "@/components";
-import { postRating } from "@/request";
-import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
+import { postRating, useGetRestaurantsDataQuery } from "@/request";
 import { useAuthStore } from "@/store/use-auth";
 import { useSelectedRestaurantId } from "@/store/use-selected-restaurant-id";
 import { ref } from "vue";

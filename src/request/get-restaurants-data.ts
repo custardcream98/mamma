@@ -1,11 +1,11 @@
 import Restaurant from "@/classes/restaurant";
 import isRestaurantRawData from "@/types/guards/isRestaurantRawData";
-import { getSheetData } from "./get-sheet-data";
+import { getRawData } from "./get-raw-data";
 
 const getRestaurantsData = async () => {
-  const sheetResponse = await getSheetData();
+  const rawData = await getRawData();
 
-  const restaurants = sheetResponse.map((data) => {
+  const restaurants = rawData.map((data) => {
     if (!isRestaurantRawData(data)) {
       throw new Error("Invalid data from Google Sheet");
     }
@@ -16,4 +16,4 @@ const getRestaurantsData = async () => {
   return restaurants;
 };
 
-export default getRestaurantsData;
+export { getRestaurantsData };

@@ -1,5 +1,5 @@
 import { ROUTE_NAME } from "@/constants/route";
-import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
+import { useGetRestaurantsDataQuery } from "@/request";
 import { useSelectedRestaurantId } from "@/store/use-selected-restaurant-id";
 import type { RestaurantMetaData } from "@/types/data";
 import { isArray } from "@vue/shared";

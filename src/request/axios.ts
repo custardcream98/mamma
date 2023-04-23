@@ -3,9 +3,9 @@ import axios from "axios";
 
 const BASE_URL = AXIOS_CONSTANTS.BASE_URL;
 
-const googleSheetApi = axios.create({
+const mammaApi = axios.create({
   baseURL: BASE_URL,
   headers: { "Content-Type": "application/json" },
 });
 
-export { googleSheetApi };
+export { mammaApi };

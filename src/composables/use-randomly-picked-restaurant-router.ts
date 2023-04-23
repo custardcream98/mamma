@@ -1,5 +1,5 @@
 import { ROUTE_NAME } from "@/constants/route";
-import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
+import { useGetRestaurantsDataQuery } from "@/request";
 import { useRestaurantTypeFilterStore } from "@/store/use-restaurant-type-filter";
 import { useRestaurantTagFilterStore } from "@/store/use-tag-filter";
 import { randomlyPickInArray } from "@/utils/array";

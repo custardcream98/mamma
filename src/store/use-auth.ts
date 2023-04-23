@@ -1,6 +1,6 @@
 import { WAVVE_EMAIL_DOMAIN } from "@/constants/auth";
 import { fireauth } from "@/lib/firebase";
-import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
+import { useGetRestaurantsDataQuery } from "@/request";
 import type { User } from "@firebase/auth";
 import { defineStore } from "pinia";
 import { ref } from "vue";

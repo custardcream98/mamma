@@ -1,6 +1,6 @@
 import type { SheetResponse } from "../data";
 
-const isSheetResponse = (response: unknown): response is SheetResponse => {
+const isRawResponse = (response: unknown): response is SheetResponse => {
   if (typeof response !== "object" || response === null) {
     return false;
   }
@@ -17,4 +17,4 @@ const isSheetResponse = (response: unknown): response is SheetResponse => {
   return true;
 };
 
-export default isSheetResponse;
+export { isRawResponse };

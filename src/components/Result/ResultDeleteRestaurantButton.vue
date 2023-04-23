@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { LoadableButton } from "@/components";
 import { useRestaurantMetaData } from "@/composables";
-import { deleteRestaurant } from "@/request/delete-restaurant";
-import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
+import { deleteRestaurant, useGetRestaurantsDataQuery } from "@/request";
 import { ref } from "vue";
 
 const { restaurantMetaData } = useRestaurantMetaData();

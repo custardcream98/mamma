@@ -9,8 +9,7 @@ import {
   StarRater,
 } from "@/components";
 import { ROUTE_NAME } from "@/constants/route";
-import { createRestaurant } from "@/request/post-create-restaurant";
-import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
+import { createRestaurant, useGetRestaurantsDataQuery } from "@/request";
 import { useSearchTarget } from "@/store/use-search-target";
 import type { RestaurantTags, RestaurantType } from "@/types/data";
 import { ref } from "vue";

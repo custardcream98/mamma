@@ -1,6 +1,6 @@
 import type Restaurant from "@/classes/restaurant";
 import { useQuery, type UseQueryOptions } from "@tanstack/vue-query";
-import getRestaurantsData from "./get-restaurants-data";
+import { getRestaurantsData } from "./get-restaurants-data";
 
 export const queryKey = ["restaurants"];
 

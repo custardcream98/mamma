@@ -1,11 +1,11 @@
 import { useAuthStore } from "@/store/use-auth";
-import { googleSheetApi } from "./axios";
+import { mammaApi } from "./axios";
 
 const deleteRestaurant = async (restaurantId: number) => {
   const authStore = useAuthStore();
 
   try {
-    await googleSheetApi.delete(`/restaurant`, {
+    await mammaApi.delete(`/restaurant`, {
       data: {
         restaurantId,
       },

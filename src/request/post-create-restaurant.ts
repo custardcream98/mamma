@@ -1,7 +1,7 @@
-import { googleSheetApi } from "@/request/axios";
 import { useAuthStore } from "@/store/use-auth";
 import type { CreatedRestaurant } from "@/types/data";
 import type { CreateRestaurantPostResponse } from "@/types/request";
+import { mammaApi } from "./axios";
 
 const createRestaurant = async ({
   name,
@@ -16,7 +16,7 @@ const createRestaurant = async ({
   const authStore = useAuthStore();
 
   try {
-    return await googleSheetApi.post<CreateRestaurantPostResponse>(
+    return await mammaApi.post<CreateRestaurantPostResponse>(
       "/restaurant",
       {
         uid: authStore.auth?.uid,

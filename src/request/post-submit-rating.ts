@@ -1,6 +1,6 @@
-import { googleSheetApi } from "@/request/axios";
 import { useAuthStore } from "@/store/use-auth";
 import type { CreatedReview } from "@/types/review";
+import { mammaApi } from "./axios";
 
 const postRating = async ({
   restaurantId,
@@ -11,7 +11,7 @@ const postRating = async ({
   const authStore = useAuthStore();
 
   try {
-    await googleSheetApi.post(
+    await mammaApi.post(
       "/rating",
       { restaurantId, name, rating, uid },
       {
