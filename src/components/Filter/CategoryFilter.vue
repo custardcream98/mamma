@@ -13,14 +13,11 @@
 </template>
 
 <script lang="ts" setup>
-import {
-  RoundedBadgeCheckbox,
-  RoundedBadgeWrapper,
-} from "@/components/RoundedBadge";
+import { RoundedBadgeCheckbox, RoundedBadgeWrapper } from "@/components";
 import { RESTAURANT_TYPES } from "@/constants/data";
 import { useRestaurantTypeFilterStore } from "@/store/use-restaurant-type-filter";
 import isRestaurantType from "@/types/guards/isRestaurantType";
-import type { CheckboxChangeEvent } from "./RoundedBadge/RoundedBadgeCheckbox.vue";
+import type { CheckboxChangeEvent } from "../RoundedBadge/RoundedBadgeCheckbox.vue";
 
 const typeFilterStore = useRestaurantTypeFilterStore();
 

@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { RateForm } from "@/components/RateForm";
+import { RateForm, ResultDeleteRestaurantButton } from "@/components";
 import { useRestaurantMetaData } from "@/composables";
 import { useAuthStore } from "@/store/use-auth";
 import { computed } from "vue";
-import DeleteResturant from "./DeleteResturant.vue";
 
 const { restaurantMetaData } = useRestaurantMetaData();
 const authStore = useAuthStore();
@@ -35,7 +34,10 @@ const check = computed(() => {
     <p text-center text-wavveGray mt-40px v-if="!authStore.auth">
       로그인해서 별점을 남겨보세요!
     </p>
-    <DeleteResturant v-else-if="check.hasUserCreatedThisRestaurant" />
+    <template v-else-if="check.hasUserCreatedThisRestaurant">
+      <p text-center>내가 등록한 레스토랑이에요!</p>
+      <ResultDeleteRestaurantButton />
+    </template>
     <RateForm my-20px v-else-if="!check.hasUserRated" />
   </section>
 </template>

@@ -1,8 +1,10 @@
 <script lang="ts" setup>
-import { HomeButton } from "@/components/Button";
-import CategoryFilterDetail from "@/components/CategoryFilterDetail.vue";
-import LoadingErrorSuspense from "@/components/LoadingErrorSuspense.vue";
-import TagFilterDetail from "@/components/TagFilterDetail.vue";
+import {
+  CategoryFilterDetail,
+  HomeButton,
+  LoadingErrorSuspense,
+  TagFilterDetail,
+} from "@/components";
 import useRandomlyPickedRestaurantRouter from "@/composables/use-randomly-picked-restaurant-router";
 
 const {

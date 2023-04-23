@@ -1,3 +1,10 @@
+<script lang="ts" setup>
+import { useRestaurantMetaData } from "@/composables";
+import { ReviewItem, ReviewList, ReviewStar } from ".";
+
+const { restaurantMetaData } = useRestaurantMetaData();
+</script>
+
 <template>
   <section py-12px mt-16px v-if="restaurantMetaData">
     <h2 sr-only>리뷰</h2>
@@ -20,15 +27,6 @@
     </ReviewList>
   </section>
 </template>
-
-<script lang="ts" setup>
-import { useRestaurantMetaData } from "@/composables";
-import ReviewItem from "./ReviewItem.vue";
-import ReviewList from "./ReviewList.vue";
-import ReviewStar from "./ReviewStar.vue";
-
-const { restaurantMetaData } = useRestaurantMetaData();
-</script>
 
 <style scoped>
 p {

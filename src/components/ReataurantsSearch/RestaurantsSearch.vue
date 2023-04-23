@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type Restaurant from "@/classes/restaurant";
+import { modalInject } from "@/components";
 import useDebounce from "@/composables/use-debounce";
 import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
 import { useSearchTarget } from "@/store/use-search-target";
@@ -9,7 +10,6 @@ import {
   RestaurantsSearchInput,
   RestaurantsSearchResults,
 } from ".";
-import { modalInject } from "../Modal";
 
 const emit = defineEmits<{
   (e: "toNextPage"): void;

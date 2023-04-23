@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { LoadableButton } from "@/components";
 import { deleteRating } from "@/request/delete-rating";
 import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
 import { useSelectedRestaurantId } from "@/store/use-selected-restaurant-id";
 import { ref } from "vue";
-import { LoadableButton } from "../Button";
 
 const props = defineProps<{
   reviewId: string;

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import CategoryFilter from "@/components/CategoryFilter.vue";
-import { DetailWrapper } from "@/components/Detail";
+import { DetailWrapper } from "@/components";
 import { useRestaurantTypeFilterText } from "@/store/use-restaurant-type-filter.js";
+import CategoryFilter from "./CategoryFilter.vue";
 
 const typeFilterText = useRestaurantTypeFilterText();
 </script>

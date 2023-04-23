@@ -4,8 +4,6 @@ export default {
 };
 </script>
 
-<script setup lang="ts"></script>
-
 <template>
   <label>
     <input class="radio-button" type="radio" sr-only v-bind="$attrs" />

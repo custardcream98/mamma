@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import LoadingIndicator from "@/components/LoadingIndicator.vue";
 import { ROUTE_NAME } from "@/constants/route";
 import { watchEffect } from "vue";
 import { useRouter } from "vue-router";
+import LoadingIndicator from "./LoadingIndicator.vue";
 
 const props = defineProps<{
   isLoading: boolean;

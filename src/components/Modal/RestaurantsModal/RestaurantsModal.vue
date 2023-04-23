@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import { CreateRestaurantForm } from "@/components/CreateRestaurantForm";
-import { RestaurantsSearch } from "@/components/ReataurantsSearch";
+import {
+  CreateRestaurantForm,
+  ModalBody,
+  ModalCloseButton,
+  modalInject,
+  ModalWrapper,
+  RestaurantsSearch,
+} from "@/components";
 import { useSearchTarget } from "@/store/use-search-target";
 import { ref, watchEffect } from "vue";
-import { ModalBody, ModalCloseButton, modalInject, ModalWrapper } from "..";
 
 const modalPage = ref<number>(0);
 const searchTarget = useSearchTarget();

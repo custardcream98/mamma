@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import SearchItemsIcon from "@/assets/svgs/SearchItemsIcon.vue";
-import { modalProvide } from "@/components/Modal";
+import { modalProvide, RestaurantsModal } from "@/components";
 import { useModal } from "@/composables";
-import { RestaurantsModal } from "../Modal/RestaurantsModal";
 
 const { isModalOpened, openModal, closeModal } = useModal();
 modalProvide({ isModalOpened, closeModal, closeOnBackdropClick: true });

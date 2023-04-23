@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { LoadableButton } from "@/components";
 import { useRestaurantMetaData } from "@/composables";
 import { deleteRestaurant } from "@/request/delete-restaurant";
 import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
 import { ref } from "vue";
-import { LoadableButton } from "./Button";
 
 const { restaurantMetaData } = useRestaurantMetaData();
 const { refetch } = useGetRestaurantsDataQuery();
@@ -27,7 +27,6 @@ const handleClick = async () => {
 </script>
 
 <template>
-  <p text-center>내가 등록한 레스토랑이에요!</p>
   <LoadableButton
     :is-loading="isDeletingRestaurant"
     warning

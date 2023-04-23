@@ -1,10 +1,17 @@
 <script lang="ts" setup>
-import { NaverMapButton } from "@/components/Button";
-import LoadingErrorSuspense from "@/components/LoadingErrorSuspense.vue";
-import { ResultDisplay } from "@/components/Result";
-import { ReviewDisplay } from "@/components/Review";
-import ReviewSection from "@/components/ReviewSection.vue";
+import BackhandIndexPointingUp from "@/assets/images/backhand-index-pointing-up.webp";
+import {
+  LoadingErrorSuspense,
+  ResultButton,
+  ResultMapLink,
+  ResultTable,
+  ReviewListSection,
+  ReviewSection,
+  RoundedBadgeItem,
+  RoundedBadgeWrapper,
+} from "@/components";
 import { useRestaurantMetaData } from "@/composables";
+import useRandomlyPickedRestaurantRouter from "@/composables/use-randomly-picked-restaurant-router";
 import { useSelectedRestaurantIdStore } from "@/store/use-selected-restaurant-id";
 import isString from "@/types/guards/isString";
 import { watchEffect } from "vue";
@@ -21,7 +28,10 @@ watchEffect(() => {
   store.setSelectedRestaurantId(Number(props.restaurantId));
 });
 
-const { isError, error, isLoadingRestaurantMetaData } = useRestaurantMetaData();
+const { isError, error, isLoadingRestaurantMetaData, restaurantMetaData } =
+  useRestaurantMetaData();
+
+const { pickAndRouteToRandomRestaurant } = useRandomlyPickedRestaurantRouter();
 </script>
 
 <template>
@@ -31,9 +41,38 @@ const { isError, error, isLoadingRestaurantMetaData } = useRestaurantMetaData();
       :is-error="isError"
       :is-loading="isLoadingRestaurantMetaData"
     >
-      <ResultDisplay />
-      <NaverMapButton mt-20px />
-      <ReviewDisplay />
+      <section>
+        <h2 sr-only>랜덤 선택 결과</h2>
+        <ResultButton
+          @click="pickAndRouteToRandomRestaurant"
+          :name="restaurantMetaData?.name"
+          :menu="restaurantMetaData?.menu"
+        />
+        <p flex items-center text-wavveGray>
+          <img w-18px h-18px mr-3px :src="BackhandIndexPointingUp" alt="" />
+          다시 돌리려면 터치하세요!
+        </p>
+        <RoundedBadgeWrapper
+          mt-16px
+          as="ul"
+          v-if="
+            restaurantMetaData?.tags && restaurantMetaData?.tags.length !== 0
+          "
+        >
+          <RoundedBadgeItem v-for="tag of restaurantMetaData.tags" :key="tag">
+            {{ tag }}
+          </RoundedBadgeItem>
+        </RoundedBadgeWrapper>
+        <ResultTable
+          mt-16px
+          :type="restaurantMetaData?.type"
+          :menu="restaurantMetaData?.menu"
+          :price="restaurantMetaData?.price"
+          :location="restaurantMetaData?.location"
+        />
+        <ResultMapLink mt-20px :name="restaurantMetaData?.name" />
+      </section>
+      <ReviewListSection />
       <ReviewSection />
     </LoadingErrorSuspense>
   </div>

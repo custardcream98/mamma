@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ROUTE_NAME } from "@/constants/route";
 
+import { modalInject } from "@/components";
 import { useSearchTarget } from "@/store/use-search-target";
 import { computed } from "vue";
 import { RouterLink } from "vue-router";
-import { modalInject } from "../Modal";
 
 const props = defineProps<{
   restaurantId: number;

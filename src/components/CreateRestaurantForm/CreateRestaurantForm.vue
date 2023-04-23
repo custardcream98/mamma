@@ -1,4 +1,13 @@
 <script setup lang="ts">
+import {
+  BigButton,
+  CreateRestaurantInput,
+  CreateRestaurantTags,
+  CreateRestaurantTextarea,
+  LoadingSpinner,
+  modalInject,
+  StarRater,
+} from "@/components";
 import { ROUTE_NAME } from "@/constants/route";
 import { createRestaurant } from "@/request/post-create-restaurant";
 import { useGetRestaurantsDataQuery } from "@/request/use-get-restaurants-data-query";
@@ -6,15 +15,6 @@ import { useSearchTarget } from "@/store/use-search-target";
 import type { RestaurantTags, RestaurantType } from "@/types/data";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import {
-  CreateRestaurantInput,
-  CreateRestaurantTags,
-  CreateRestaurantTextarea,
-} from ".";
-import { BigButton } from "../Button";
-import LoadingSpinner from "../LoadingSpinner.vue";
-import { modalInject } from "../Modal";
-import StarRater from "../RateForm/StarRater.vue";
 
 const searchTarget = useSearchTarget();
 const isRestaurantCreating = ref<boolean>(false);

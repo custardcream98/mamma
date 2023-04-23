@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { RESTAURANT_TAGS, RESTAURANT_TYPES } from "@/constants/data";
 import {
   RoundedBadgeCheckbox,
   RoundedBadgeRadioButton,
   RoundedBadgeWrapper,
-} from "../RoundedBadge";
+} from "@/components";
+import { RESTAURANT_TAGS, RESTAURANT_TYPES } from "@/constants/data";
 </script>
 
 <template>
