@@ -1,6 +1,6 @@
 import { useAuthStore } from "@/store";
 import type { CreatedReview } from "@/types/review";
-import { mammaApi } from "./axios";
+import { mammaApi } from "../axios";
 
 const postRating = async ({
   restaurantId,

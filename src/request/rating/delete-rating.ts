@@ -1,12 +1,13 @@
 import { useAuthStore } from "@/store";
-import { mammaApi } from "./axios";
+import { mammaApi } from "../axios";
 
-const deleteRestaurant = async (restaurantId: number) => {
+const deleteRating = async (reviewId: string, restaurantId: number) => {
   const authStore = useAuthStore();
 
   try {
-    await mammaApi.delete(`/restaurant`, {
+    await mammaApi.delete(`/rating`, {
       data: {
+        reviewId,
         restaurantId,
       },
       headers: {
@@ -15,8 +16,8 @@ const deleteRestaurant = async (restaurantId: number) => {
     });
   } catch (error) {
     console.error(error);
-    alert("레스토랑 삭제에 실패했습니다. 다시 시도해주세요.");
+    alert("리뷰 삭제에 실패했습니다. 다시 시도해주세요.");
   }
 };
 
-export { deleteRestaurant };
+export { deleteRating };
