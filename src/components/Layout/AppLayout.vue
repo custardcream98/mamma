@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useAuthStore } from "@/store/use-auth";
+import { useAuthStore } from "@/store";
 import FloatingButton from "../Button/FloatingButton.vue";
 import AppFooter from "./AppFooter.vue";
 import AppHeader from "./AppHeader.vue";

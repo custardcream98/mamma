@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RateForm, ResultDeleteRestaurantButton } from "@/components";
 import { useRestaurantMetaData } from "@/composables";
-import { useAuthStore } from "@/store/use-auth";
+import { useAuthStore } from "@/store";
 import { computed } from "vue";
 
 const { restaurantMetaData } = useRestaurantMetaData();

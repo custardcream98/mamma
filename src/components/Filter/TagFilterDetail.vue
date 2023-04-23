@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { DetailWrapper } from "@/components";
-import { useRestaurantTagFilterText } from "@/store/use-tag-filter";
+import { useRestaurantTagFilterText } from "@/store";
 import TagFilter from "./TagFilter.vue";
 
 const tagFilterText = useRestaurantTagFilterText();

@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { BigButton } from "@/components";
 import { postRating, useGetRestaurantsDataQuery } from "@/request";
-import { useAuthStore } from "@/store/use-auth";
-import { useSelectedRestaurantId } from "@/store/use-selected-restaurant-id";
+import { useAuthStore, useSelectedRestaurantId } from "@/store";
 import { ref } from "vue";
 import StarRater from "./StarRater.vue";
 

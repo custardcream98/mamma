@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { loginGoogle, logoutGoogle } from "@/lib/firebase";
-import { useAuthStore } from "@/store/use-auth";
+import { useAuthStore } from "@/store";
 const authStore = useAuthStore();
 </script>
 

@@ -1,4 +1,4 @@
-import { useAuthStore } from "@/store/use-auth";
+import { useAuthStore } from "@/store";
 import type { CreatedRestaurant } from "@/types/data";
 import type { CreateRestaurantPostResponse } from "@/types/request";
 import { mammaApi } from "./axios";

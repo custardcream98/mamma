@@ -14,20 +14,20 @@ import {
   useRandomlyPickedRestaurantRouter,
   useRestaurantMetaData,
 } from "@/composables";
-import { useSelectedRestaurantIdStore } from "@/store/use-selected-restaurant-id";
+import { useSelectedRestaurantIdStore } from "@/store";
 import isString from "@/types/guards/isString";
 import { watchEffect } from "vue";
 
 const props = defineProps<{
   restaurantId: string;
 }>();
-const store = useSelectedRestaurantIdStore();
+const restaurantIdStore = useSelectedRestaurantIdStore();
 
 watchEffect(() => {
   if (!isString(props.restaurantId)) {
     return;
   }
-  store.setSelectedRestaurantId(Number(props.restaurantId));
+  restaurantIdStore.setSelectedRestaurantId(Number(props.restaurantId));
 });
 
 const { isError, error, isLoadingRestaurantMetaData, restaurantMetaData } =

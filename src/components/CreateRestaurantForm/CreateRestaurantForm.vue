@@ -10,7 +10,7 @@ import {
 } from "@/components";
 import { ROUTE_NAME } from "@/constants/route";
 import { createRestaurant, useGetRestaurantsDataQuery } from "@/request";
-import { useSearchTarget } from "@/store/use-search-target";
+import { useSearchTarget } from "@/store";
 import type { RestaurantTags, RestaurantType } from "@/types/data";
 import { ref } from "vue";
 import { useRouter } from "vue-router";

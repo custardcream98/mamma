@@ -1,4 +1,4 @@
-import { useAuthStore } from "@/store/use-auth";
+import { useAuthStore } from "@/store";
 import { isRawResponse } from "@/types/guards/isRawResponse";
 import { mammaApi } from "./axios";
 

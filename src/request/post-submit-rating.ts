@@ -1,4 +1,4 @@
-import { useAuthStore } from "@/store/use-auth";
+import { useAuthStore } from "@/store";
 import type { CreatedReview } from "@/types/review";
 import { mammaApi } from "./axios";
 

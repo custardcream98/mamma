@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import PartyFace from "@/assets/images/party-face.webp";
-import { useSearchTarget } from "@/store/use-search-target";
+import { useSearchTarget } from "@/store";
 
 const searchTarget = useSearchTarget();
 </script>

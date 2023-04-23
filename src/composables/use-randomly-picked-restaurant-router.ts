@@ -1,7 +1,9 @@
 import { ROUTE_NAME } from "@/constants/route";
 import { useGetRestaurantsDataQuery } from "@/request";
-import { useRestaurantTypeFilterStore } from "@/store/use-restaurant-type-filter";
-import { useRestaurantTagFilterStore } from "@/store/use-tag-filter";
+import {
+  useRestaurantTagFilterStore,
+  useRestaurantTypeFilterStore,
+} from "@/store";
 import { randomlyPickInArray } from "@/utils/array";
 import { useRouter } from "vue-router";
 

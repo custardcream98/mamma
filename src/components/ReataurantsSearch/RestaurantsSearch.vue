@@ -3,7 +3,7 @@ import type Restaurant from "@/classes/restaurant";
 import { modalInject } from "@/components";
 import { useDebounce } from "@/composables";
 import { useGetRestaurantsDataQuery } from "@/request";
-import { useSearchTarget } from "@/store/use-search-target";
+import { useSearchTarget } from "@/store";
 import { ref, watchEffect } from "vue";
 import {
   RestaurantsCreateButton,

@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 import { RoundedBadgeCheckbox, RoundedBadgeWrapper } from "@/components";
 import { RESTAURANT_TAGS } from "@/constants/data";
-import { useRestaurantTagFilterStore } from "@/store/use-tag-filter";
+import { useRestaurantTagFilterStore } from "@/store";
 import isRestaurantTagsType from "@/types/guards/isRestaurantTagsType";
 import type { CheckboxChangeEvent } from "../RoundedBadge/RoundedBadgeCheckbox.vue";
 

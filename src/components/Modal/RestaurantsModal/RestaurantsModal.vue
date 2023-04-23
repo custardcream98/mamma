@@ -7,7 +7,7 @@ import {
   ModalWrapper,
   RestaurantsSearch,
 } from "@/components";
-import { useSearchTarget } from "@/store/use-search-target";
+import { useSearchTarget } from "@/store";
 import { ref, watchEffect } from "vue";
 
 const modalPage = ref<number>(0);

@@ -1,4 +1,4 @@
-import { useAuthStore } from "@/store/use-auth";
+import { useAuthStore } from "@/store";
 import { mammaApi } from "./axios";
 
 const deleteRestaurant = async (restaurantId: number) => {

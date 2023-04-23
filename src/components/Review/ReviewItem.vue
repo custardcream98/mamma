@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useAuthStore } from "@/store/use-auth";
+import { useAuthStore } from "@/store";
 import { computed } from "vue";
 import ReviewDeleteButton from "./ReviewDeleteButton.vue";
 

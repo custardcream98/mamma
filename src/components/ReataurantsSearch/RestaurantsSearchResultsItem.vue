@@ -2,7 +2,7 @@
 import { ROUTE_NAME } from "@/constants/route";
 
 import { modalInject } from "@/components";
-import { useSearchTarget } from "@/store/use-search-target";
+import { useSearchTarget } from "@/store";
 import { computed } from "vue";
 import { RouterLink } from "vue-router";
 
