@@ -13,8 +13,6 @@ const {
   isRestaurantDataError,
   restaurantDataError,
 } = useRandomlyPickedRestaurantRouter();
-
-const handlePickerButtonClick = pickAndRouteToRandomRestaurant;
 </script>
 
 <template>
@@ -26,7 +24,7 @@ const handlePickerButtonClick = pickAndRouteToRandomRestaurant;
       :error="restaurantDataError"
     >
       <template #default>
-        <form @submit.prevent="handlePickerButtonClick">
+        <form @submit.prevent="pickAndRouteToRandomRestaurant">
           <HomeButton />
           <CategoryFilterDetail />
           <TagFilterDetail />
