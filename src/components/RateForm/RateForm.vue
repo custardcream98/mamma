@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BigButton } from "@/components";
+import { BigButton, LoadingSpinner } from "@/components";
 import { postRating, useGetRestaurantsDataQuery } from "@/request";
 import { useAuthStore, useSelectedRestaurantId } from "@/store";
 import { ref } from "vue";
@@ -52,11 +52,12 @@ const handleSubmit = async (event: Event) => {
       type="submit"
       :disabled="isPostingRating"
       mt-20px
-      w-fit
+      w-160px
       mx-auto
       px-30px
     >
-      별점 등록하기
+      <template v-if="!isPostingRating">별점 등록하기</template>
+      <LoadingSpinner v-else blue />
     </BigButton>
   </form>
 </template>
