@@ -6,7 +6,7 @@ import { MainButton, MainButtonBoldText } from "@/components";
 <template>
   <MainButton type="submit" text-wavveGray>
     <template #first-line>
-      <MainButtonBoldText>터치</MainButtonBoldText>해서
+      <MainButtonBoldText class="bg-animated">터치</MainButtonBoldText>해서
       <img
         inline-block
         align-top
@@ -23,3 +23,31 @@ import { MainButton, MainButtonBoldText } from "@/components";
     </template>
   </MainButton>
 </template>
+
+<style scoped>
+@keyframes textClip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.bg-animated {
+  display: inline-block;
+  background-image: linear-gradient(
+    -90deg,
+    #0050ff 0%,
+    #00a6ff 20%,
+    #00ffff 40%,
+    #00ffff 60%,
+    #00a6ff 80%,
+    #0050ff 100%
+  );
+  background-size: 200% auto;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+
+  animation: textClip 3s linear infinite;
+}
+</style>
